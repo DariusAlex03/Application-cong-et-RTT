@@ -1,0 +1,1576 @@
+"'Modifier demande' As screen.'tabletAutoLayout_HeaderMainFooter_ver1.0'":
+
+    ScreenContainer1_2 As groupContainer.verticalAutoLayoutContainer:
+        Height: =Parent.Height
+        LayoutAlignItems: =LayoutAlignItems.Stretch
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutMode: =LayoutMode.Auto
+        Width: =Parent.Width
+        ZIndex: =1
+
+        HeaderContainer1_2 As groupContainer.horizontalAutoLayoutContainer:
+            FillPortions: =0
+            Height: =60
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            ZIndex: =2
+
+            Rectangle1_2 As rectangle:
+                AlignInContainer: =AlignInContainer.Start
+                Fill: =RGBA(0, 44, 119, 1)
+                FillPortions: =1
+                Height: =60
+                LayoutMinHeight: =50
+                ZIndex: =1
+
+        MainSectionContainer1_2 As groupContainer.verticalAutoLayoutContainer:
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            ZIndex: =3
+
+            Rectangle3_2 As rectangle:
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =10
+                Width: =10
+                ZIndex: =1
+
+        FooterContainer1_2 As groupContainer.horizontalAutoLayoutContainer:
+            FillPortions: =0
+            Height: =25
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            ZIndex: =4
+
+            Rectangle2_2 As rectangle:
+                Fill: =RGBA(0, 44, 119, 1)
+                FillPortions: =1
+                Height: =45
+                ZIndex: =1
+
+    Rectangle4_2 As rectangle:
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =2
+        Fill: =RGBA(215, 223, 240, 1)
+        Height: =555
+        Width: =865
+        X: =34
+        Y: =154
+        ZIndex: =5
+
+    Rectangle5_1 As rectangle:
+        Height: =65
+        Width: =334
+        X: =15
+        Y: =110
+        ZIndex: =6
+
+    Label4_1 As label:
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =33
+        Size: =20
+        Text: ="Nouvelle demande"
+        Width: =314
+        X: =25
+        Y: =126
+        ZIndex: =7
+
+    Icon4_1 As icon.BackArrow:
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =59
+        Icon: =Icon.BackArrow
+        OnSelect: =Back()
+        PaddingBottom: =10
+        PaddingLeft: |
+            =10
+        PaddingRight: =10
+        PaddingTop: =10  
+        Width: =75
+        ZIndex: =12
+
+    TextInput1 As text:
+        BorderThickness: =0
+        Default: |-
+            =Concatenate("Supérieur Hierarchique : ", LookUp(TB_Utilisateurs, User().Email = 'Prenom NOM'.Email, Lower('Supérieur Hiérarchique'.Email)))
+        DisplayMode: =DisplayMode.View
+        Fill: =RGBA(0, 0, 0, 0)
+        FontWeight: =FontWeight.Semibold
+        Height: =39
+        Mode: =TextMode.MultiLine
+        Size: =15
+        Width: =543
+        X: =15
+        Y: =65
+        ZIndex: =13
+
+    commentaire_1 As text:
+        Default: =If(!IsBlank(trs_var), LookUp(TB_Demandes, ID = trs_var, Commentaire_1))
+        Height: =162
+        HintText: ="Commentaire"
+        Mode: =TextMode.MultiLine
+        Reset: =varReset
+        Width: =431
+        X: =917
+        Y: =470
+        ZIndex: =14
+
+    Rectangle6_2 As rectangle:
+        BorderThickness: =2
+        Fill: =RGBA(0, 0, 0, 0)
+        Height: =246
+        Width: =424
+        X: =917
+        Y: =207
+        ZIndex: =15
+
+    Label6_2 As label:
+        FontWeight: =FontWeight.Bold
+        Height: =46
+        Size: =17
+        Text: ="Compteur"
+        Width: =143
+        X: =916
+        Y: =163
+        ZIndex: =16
+
+    Label7_7 As label:
+        Align: =Align.Center
+        FontWeight: =FontWeight.Bold
+        Text: ="Type"
+        Width: =162
+        X: =920
+        Y: =209
+        ZIndex: =17
+
+    Label7_8 As label:
+        Align: =Align.Center
+        FontWeight: =FontWeight.Bold
+        Text: ="Dispo"
+        Width: =91
+        X: =1099
+        Y: =209
+        ZIndex: =18
+
+    Label7_9 As label:
+        FontWeight: =FontWeight.Bold
+        Text: ="CP. Congé payé "
+        Width: =156
+        X: =923
+        Y: =253
+        ZIndex: =19
+
+    Label7_10 As label:
+        FontWeight: =FontWeight.Bold
+        Height: =45
+        Text: ="CP. 5ème semaine"
+        Width: =174
+        X: =923
+        Y: =286
+        ZIndex: =20
+
+    Label7_11 As label:
+        FontWeight: =FontWeight.Bold
+        Height: =45
+        Text: ="CP. Frac."
+        Width: =174
+        X: =923
+        Y: =326
+        ZIndex: =21
+
+    Label7_12 As label:
+        FontWeight: =FontWeight.Bold
+        Height: =45
+        Text: ="CP. Ancienneté"
+        Width: =174
+        X: =923
+        Y: =366
+        ZIndex: =22
+
+    c_tt_rtt As label:
+        FontWeight: =FontWeight.Bold
+        Height: =45
+        Text: ="RTT"
+        Width: =174
+        X: =923
+        Y: =408
+        ZIndex: =23
+
+    Rectangle6 As rectangle:
+        Fill: =RGBA(0, 18, 107, 1)
+        Height: =246
+        Width: =2
+        X: =1097
+        Y: =207
+        ZIndex: =24
+
+    C_DMD1_D As datepicker:
+        DefaultDate: =If(!IsBlank(trs_var), LookUp(TB_Demandes, trs_var = ID, Date_Debut), Today() + 1)
+        DisplayMode: =If(Cbx_dmd_1.Value = true, DisplayMode.Edit, DisplayMode.Disabled)
+        FontWeight: =FontWeight.Semibold
+        Height: =34
+        PaddingTop: =5
+        Reset: =varReset
+        Size: =13
+        StartOfWeek: =StartOfWeek.Monday
+        Width: =219
+        X: =90
+        Y: =262
+        ZIndex: =25
+
+    C_DMD2_D As datepicker:
+        DefaultDate: |
+            =Today()+1
+        DisplayMode: =If(Cbx_dmd_2.Value = true, DisplayMode.Edit, DisplayMode.Disabled)
+        FontWeight: =FontWeight.Semibold
+        Height: =34
+        PaddingTop: =5
+        Reset: =varReset
+        Size: =13
+        StartOfWeek: =StartOfWeek.Monday
+        Visible: =If( !IsBlank(trs_var), false,  If(Cbx_dmd_1.Value = true, true, false))
+        Width: =219
+        X: =90
+        Y: =349
+        ZIndex: =26
+
+    C_DMD3_D As datepicker:
+        DefaultDate: |
+            =Today()+1
+        DisplayMode: =If(Cbx_dmd_3.Value = true, DisplayMode.Edit, DisplayMode.Disabled)
+        FontWeight: =FontWeight.Semibold
+        Height: =34
+        PaddingTop: =5
+        Reset: =varReset
+        Size: =13
+        StartOfWeek: =StartOfWeek.Monday
+        Visible: =If(Cbx_dmd_2.Value = true, true, false)
+        Width: =219
+        X: =90
+        Y: =437
+        ZIndex: =27
+
+    C_DMD4_D As datepicker:
+        DefaultDate: |
+            =Today()+1
+        DisplayMode: =If(Cbx_dmd_4.Value = true, DisplayMode.Edit, DisplayMode.Disabled)
+        FontWeight: =FontWeight.Semibold
+        Height: =34
+        PaddingTop: =5
+        Reset: =varReset
+        Size: =13
+        StartOfWeek: =StartOfWeek.Monday
+        Visible: =If(Cbx_dmd_3.Value = true, true, false)
+        Width: =219
+        X: =90
+        Y: =526
+        ZIndex: =28
+
+    C_DMD5_D As datepicker:
+        DefaultDate: |
+            =Today()+1
+        DisplayMode: =If(Cbx_dmd_5.Value = true, DisplayMode.Edit, DisplayMode.Disabled)
+        FontWeight: =FontWeight.Semibold
+        Height: =34
+        PaddingTop: =5
+        Reset: =varReset
+        Size: =13
+        StartOfWeek: =StartOfWeek.Monday
+        Visible: =If(Cbx_dmd_4.Value = true, true, false)
+        Width: =219
+        X: =90
+        Y: =609
+        ZIndex: =29
+
+    C_DMD1_R As datepicker:
+        DefaultDate: |
+            =If(!IsBlank(trs_var),LookUp(TB_Demandes, trs_var = ID, Date_retour) , If(type1.SelectedText.Value = "RTT", C_DMD1_D.SelectedDate, C_DMD1_D.SelectedDate))
+        DisplayMode: =If(Cbx_dmd_1.Value = true, DisplayMode.Edit, DisplayMode.Disabled)
+        FontWeight: =FontWeight.Semibold
+        Height: =34
+        OnChange: |-
+            =If(
+                type1.SelectedText.Value = "RTT" && DateDiff(
+                    C_DMD1_D,
+                    C_DMD1_R,
+                    TimeUnit.Days
+                ) >= 2,
+                Notify(
+                    "Attention, vous n'avez pas le droit de déposer 2 jours de RTT",
+                    NotificationType.Warning
+                ),
+                If(
+                    type1.SelectedText.Value = "RTT" && DateDiff(
+                        C_DMD1_D,
+                        C_DMD1_R,
+                        TimeUnit.Days
+                    ) = 1,
+                    Notify(
+                        "Cette selection n'est pas autorisé, pour un RTT la date de rétour doit être le même jour",
+                        NotificationType.Error
+                    )
+                )
+            )
+        PaddingTop: =5
+        Reset: =varReset
+        Size: =13
+        StartOfWeek: =StartOfWeek.Monday
+        Width: =219
+        X: =354
+        Y: =262
+        ZIndex: =30
+
+    C_DMD2_R As datepicker:
+        DefaultDate: =If(type2.SelectedText.Value = "RTT", C_DMD2_D.SelectedDate , C_DMD2_D.SelectedDate )
+        DisplayMode: =If(Cbx_dmd_2.Value = true, DisplayMode.Edit, DisplayMode.Disabled)
+        FontWeight: =FontWeight.Semibold
+        Height: =34
+        OnChange: |-
+            =If(
+                type2.SelectedText.Value = "RTT" && DateDiff(
+                    C_DMD2_D,
+                    C_DMD2_R,
+                    TimeUnit.Days
+                ) >= 2,
+                Notify(
+                    "Attention, vous n'avez pas le droit de déposer 2 jours de RTT",
+                    NotificationType.Warning
+                ),
+                If(
+                    type1.SelectedText.Value = "RTT" && DateDiff(
+                        C_DMD2_D,
+                        C_DMD2_R,
+                        TimeUnit.Days
+                    ) = 1,
+                    Notify(
+                        "Cette selection n'est pas autorisé, pour un RTT la date de rétour doit être le même jour",
+                        NotificationType.Error
+                    )
+                )
+            )
+        PaddingTop: =5
+        Reset: =varReset
+        Size: =13
+        StartOfWeek: =StartOfWeek.Monday
+        Visible: =If(!IsBlank(trs_var),false, If(Cbx_dmd_1.Value = true, true, false))
+        Width: =219
+        X: =354
+        Y: =349
+        ZIndex: =31
+
+    C_DMD3_R As datepicker:
+        DefaultDate: |
+            =If(type3.SelectedText.Value = "RTT", C_DMD3_D.SelectedDate , C_DMD3_D.SelectedDate )
+        DisplayMode: =If(Cbx_dmd_3.Value = true, DisplayMode.Edit, DisplayMode.Disabled)
+        FontWeight: =FontWeight.Semibold
+        Height: =34
+        OnChange: |-
+            =If(
+                type3.SelectedText.Value = "RTT" && DateDiff(
+                    C_DMD3_D,
+                    C_DMD3_R,
+                    TimeUnit.Days
+                ) >= 2,
+                Notify(
+                    "Attention, vous n'avez pas le droit de déposer 2 jours de RTT",
+                    NotificationType.Warning
+                ),
+                If(
+                    type1.SelectedText.Value = "RTT" && DateDiff(
+                        C_DMD3_D,
+                        C_DMD3_R,
+                        TimeUnit.Days
+                    ) = 1,
+                    Notify(
+                        "Cette selection n'est pas autorisé, pour un RTT la date de rétour doit être le même jour",
+                        NotificationType.Error
+                    )
+                )
+            )
+        PaddingTop: =5
+        Reset: =varReset
+        Size: =13
+        StartOfWeek: =StartOfWeek.Monday
+        Visible: =If(Cbx_dmd_2.Value = true, true, false)
+        Width: =219
+        X: =354
+        Y: =435
+        ZIndex: =32
+
+    C_DMD4_R As datepicker:
+        DefaultDate: =If(type4.SelectedText.Value = "RTT", C_DMD4_D.SelectedDate , C_DMD4_D.SelectedDate )
+        DisplayMode: =If(Cbx_dmd_4.Value = true, DisplayMode.Edit, DisplayMode.Disabled)
+        FontWeight: =FontWeight.Semibold
+        Height: =34
+        OnChange: |-
+            =If(
+                type4.SelectedText.Value = "RTT" && DateDiff(
+                    C_DMD4_D,
+                    C_DMD4_R,
+                    TimeUnit.Days
+                ) >= 2,
+                Notify(
+                    "Attention, vous n'avez pas le droit de déposer 2 jours de RTT",
+                    NotificationType.Warning
+                ),
+                If(
+                    type1.SelectedText.Value = "RTT" && DateDiff(
+                        C_DMD4_D,
+                        C_DMD4_R,
+                        TimeUnit.Days
+                    ) = 1,
+                    Notify(
+                        "Cette selection n'est pas autorisé, pour un RTT la date de rétour doit être le même jour",
+                        NotificationType.Error
+                    )
+                )
+            )
+        PaddingTop: =5
+        Reset: =varReset
+        Size: =13
+        StartOfWeek: =StartOfWeek.Monday
+        Visible: =If(Cbx_dmd_3.Value = true, true, false)
+        Width: =219
+        X: =354
+        Y: =526
+        ZIndex: =33
+
+    C_DMD5_R As datepicker:
+        DefaultDate: =If(type5.SelectedText.Value = "RTT", C_DMD5_D.SelectedDate , C_DMD5_D.SelectedDate )
+        DisplayMode: =If(Cbx_dmd_5.Value = true, DisplayMode.Edit, DisplayMode.Disabled)
+        FontWeight: =FontWeight.Semibold
+        Height: =34
+        OnChange: |-
+            =If(
+                type5.SelectedText.Value = "RTT" && DateDiff(
+                    C_DMD5_D,
+                    C_DMD5_R,
+                    TimeUnit.Days
+                ) >= 2,
+                Notify(
+                    "Attention, vous n'avez pas le droit de déposer 2 jours de RTT",
+                    NotificationType.Warning
+                ),
+                If(
+                    type1.SelectedText.Value = "RTT" && DateDiff(
+                        C_DMD5_D,
+                        C_DMD5_R,
+                        TimeUnit.Days
+                    ) = 1,
+                    Notify(
+                        "Cette selection n'est pas autorisé, pour un RTT la date de rétour doit être le même jour",
+                        NotificationType.Error
+                    )
+                )
+            )
+        PaddingTop: =5
+        Reset: =varReset
+        Size: =13
+        StartOfWeek: =StartOfWeek.Monday
+        Visible: =If(Cbx_dmd_4.Value = true, true, false)
+        Width: =219
+        X: =354
+        Y: =609
+        ZIndex: =34
+
+    Label6 As label:
+        Align: =Align.Center
+        FontWeight: =FontWeight.Semibold
+        Height: =35
+        Size: =14
+        Text: ="au"
+        Width: =44
+        X: =310
+        Y: =261
+        ZIndex: =35
+
+    Label6_3 As label:
+        Align: =Align.Center
+        FontWeight: =FontWeight.Semibold
+        Height: =35
+        Size: =14
+        Text: ="au"
+        Visible: =If(!IsBlank(trs_var),false,  If(Cbx_dmd_1.Value = true, true, false))
+        Width: =44
+        X: =310
+        Y: =348
+        ZIndex: =36
+
+    Label6_4 As label:
+        Align: =Align.Center
+        FontWeight: =FontWeight.Semibold
+        Height: =35
+        Size: =14
+        Text: ="au"
+        Visible: =If(Cbx_dmd_2.Value = true, true, false)
+        Width: =44
+        X: =310
+        Y: =435
+        ZIndex: =37
+
+    Label6_5 As label:
+        Align: =Align.Center
+        FontWeight: =FontWeight.Semibold
+        Height: =35
+        Size: =14
+        Text: ="au"
+        Visible: =If(Cbx_dmd_3.Value = true, true, false)
+        Width: =44
+        X: =310
+        Y: =525
+        ZIndex: =38
+
+    Label6_6 As label:
+        Align: =Align.Center
+        FontWeight: =FontWeight.Semibold
+        Height: =35
+        Size: =14
+        Text: ="au"
+        Visible: =If(Cbx_dmd_4.Value = true, true, false)
+        Width: =44
+        X: =310
+        Y: =608
+        ZIndex: =39
+
+    TextInput6 As text:
+        Align: =Align.Right
+        Color: =RGBA(255, 255, 255, 1)
+        Default: =Text(Today())
+        DisplayMode: =DisplayMode.View
+        Fill: =RGBA(0, 0, 0, 0)
+        Height: =59
+        Size: =21
+        Width: =304
+        X: =1038
+        ZIndex: =40
+
+    TextInput7 As text:
+        Align: =Align.Center
+        Default: |-
+            =If(
+                DateDiff(
+                    C_DMD1_D,
+                    C_DMD1_R,
+                    TimeUnit.Days
+                ) = 0 And type1.SelectedText.Value = "RTT",
+                1,
+                If(
+                    DateDiff(
+                        C_DMD1_D,
+                        C_DMD1_R,
+                        TimeUnit.Days
+                    ) = 1,
+                    0,
+                    DateDiff(
+                        C_DMD1_D,
+                        C_DMD1_R,
+                        TimeUnit.Days
+                    )
+                )
+            )
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledColor: =RGBA(0, 0, 0, 0)
+        DisabledFill: =RGBA(0, 0, 0, 0)
+        DisplayMode: =If(Cbx_dmd_1.Value = true, DisplayMode.View, DisplayMode.Disabled)
+        Fill: =RGBA(0, 0, 0, 0)
+        FontWeight: =FontWeight.Semibold
+        Height: =34
+        PaddingLeft: =5
+        Width: =39
+        Y: =264
+        ZIndex: =41
+
+    TextInput7_1 As text:
+        Align: =Align.Center
+        Default: |-
+            =If(
+                DateDiff(
+                    C_DMD2_D,
+                    C_DMD2_R,
+                    TimeUnit.Days
+                ) = 0 And type2.SelectedText.Value = "RTT",
+                1,
+                If(
+                    DateDiff(
+                        C_DMD2_D,
+                        C_DMD2_R,
+                        TimeUnit.Days
+                    ) = 1,
+                    0,
+                    DateDiff(
+                        C_DMD2_D,
+                        C_DMD2_R,
+                        TimeUnit.Days
+                    )
+                )
+            )
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledColor: =RGBA(0, 0, 0, 0)
+        DisabledFill: =RGBA(0, 0, 0, 0)
+        DisplayMode: =If(Cbx_dmd_2.Value = true, DisplayMode.View, DisplayMode.Disabled)
+        Fill: =RGBA(0, 0, 0, 0)
+        FontWeight: =FontWeight.Semibold
+        Height: =34
+        PaddingLeft: =5
+        Size: =15
+        Visible: =If(Cbx_dmd_1.Value = true, true, false)
+        Width: =39
+        Y: =349
+        ZIndex: =42
+
+    TextInput7_2 As text:
+        Align: =Align.Center
+        Default: |-
+            =If(
+                DateDiff(
+                    C_DMD3_D,
+                    C_DMD3_R,
+                    TimeUnit.Days
+                ) = 0 And type3.SelectedText.Value = "RTT",
+                1,
+                If(
+                    DateDiff(
+                        C_DMD3_D,
+                        C_DMD3_R,
+                        TimeUnit.Days
+                    ) = 1,
+                    0,
+                    DateDiff(
+                        C_DMD3_D,
+                        C_DMD3_R,
+                        TimeUnit.Days
+                    )
+                )
+            )
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledColor: =RGBA(0, 0, 0, 0)
+        DisabledFill: =RGBA(0, 0, 0, 0)
+        DisplayMode: =If(Cbx_dmd_3.Value = true, DisplayMode.View, DisplayMode.Disabled)
+        Fill: =RGBA(0, 0, 0, 0)
+        FontWeight: =FontWeight.Semibold
+        Height: =34
+        PaddingLeft: =5
+        Size: =15
+        Visible: =If(Cbx_dmd_2.Value = true, true, false)
+        Width: =39
+        Y: =439
+        ZIndex: =43
+
+    TextInput7_3 As text:
+        Align: =Align.Center
+        Default: |-
+            =If(
+                DateDiff(
+                    C_DMD4_D,
+                    C_DMD4_R,
+                    TimeUnit.Days
+                ) = 0 And type4.SelectedText.Value = "RTT",
+                1,
+                If(
+                    DateDiff(
+                        C_DMD4_D,
+                        C_DMD4_R,
+                        TimeUnit.Days
+                    ) = 1,
+                    0,
+                    DateDiff(
+                        C_DMD4_D,
+                        C_DMD4_R,
+                        TimeUnit.Days
+                    )
+                )
+            )
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledColor: =RGBA(0, 0, 0, 0)
+        DisabledFill: =RGBA(0, 0, 0, 0)
+        DisplayMode: =If(Cbx_dmd_4.Value = true, DisplayMode.View, DisplayMode.Disabled)
+        Fill: =RGBA(0, 0, 0, 0)
+        FontWeight: =FontWeight.Semibold
+        Height: =34
+        PaddingLeft: =5
+        Size: =15
+        Visible: =If(Cbx_dmd_3.Value = true, true, false)
+        Width: =39
+        Y: =528
+        ZIndex: =44
+
+    TextInput7_4 As text:
+        Align: =Align.Center
+        Default: |-
+            =If(
+                DateDiff(
+                    C_DMD5_D,
+                    C_DMD5_R,
+                    TimeUnit.Days
+                ) = 0 And type5.SelectedText.Value = "RTT",
+                1,
+                If(
+                    DateDiff(
+                        C_DMD5_D,
+                        C_DMD5_R,
+                        TimeUnit.Days
+                    ) = 1,
+                    0,
+                    DateDiff(
+                        C_DMD5_D,
+                        C_DMD5_R,
+                        TimeUnit.Days
+                    )
+                )
+            )
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledColor: =RGBA(0, 0, 0, 0)
+        DisabledFill: =RGBA(0, 0, 0, 0)
+        DisplayMode: =If(Cbx_dmd_5.Value = true, DisplayMode.View, DisplayMode.Disabled)
+        Fill: =RGBA(0, 0, 0, 0)
+        FontWeight: =FontWeight.Semibold
+        Height: =34
+        PaddingLeft: =5
+        Size: =15
+        Visible: =If(Cbx_dmd_4.Value = true, true, false)
+        Width: =39
+        Y: =611
+        ZIndex: =45
+
+    Label8 As label:
+        FontWeight: =FontWeight.Semibold
+        Size: =15
+        Text: |-
+            ="Date de départ :"
+        Width: =175
+        X: =105
+        Y: =210
+        ZIndex: =46
+
+    Label8_1 As label:
+        FontWeight: =FontWeight.Semibold
+        Height: =61
+        Size: =15
+        Text: |-
+            ="Dernier jour de congé ou d'abscence :"
+        Width: =234
+        X: =354
+        Y: =201
+        ZIndex: =47
+
+    Cbx_dmd_1 As checkbox:
+        CheckboxSize: =33
+        FontWeight: =FontWeight.Semibold
+        Height: =35
+        Size: =10
+        Text: =""
+        Width: =35
+        X: =48
+        Y: =262
+        ZIndex: =48
+
+    Cbx_dmd_2 As checkbox:
+        CheckboxSize: =33
+        FontWeight: =FontWeight.Semibold
+        Height: =35
+        Reset: =varReset
+        Size: =10
+        Text: =""
+        Visible: =If(!IsBlank(trs_var), false, If(Cbx_dmd_1.Value = true, true, false))
+        Width: =35
+        X: =49
+        Y: =349
+        ZIndex: =49
+
+    Cbx_dmd_3 As checkbox:
+        CheckboxSize: =33
+        FontWeight: =FontWeight.Semibold
+        Height: =35
+        Reset: =varReset
+        Size: =10
+        Text: =""
+        Visible: =If(Cbx_dmd_2.Value = true, true, false)
+        Width: =35
+        X: =49
+        Y: =437
+        ZIndex: =50
+
+    Cbx_dmd_4 As checkbox:
+        CheckboxSize: =33
+        FontWeight: =FontWeight.Semibold
+        Height: =35
+        Reset: =varReset
+        Size: =10
+        Text: =""
+        Visible: =If(Cbx_dmd_3.Value = true, true, false)
+        Width: =35
+        X: =49
+        Y: =526
+        ZIndex: =51
+
+    Cbx_dmd_5 As checkbox:
+        CheckboxSize: =33
+        FontWeight: =FontWeight.Semibold
+        Height: =35
+        Reset: =varReset
+        Size: =10
+        Text: =""
+        Visible: =If(Cbx_dmd_4.Value = true, true, false)
+        Width: =35
+        X: =49
+        Y: =609
+        ZIndex: =52
+
+    type1 As dropdown:
+        Default: =If(!IsBlank(trs_var), LookUp(TB_Demandes, trs_var = ID, Type_C))
+        DisplayMode: =If(Cbx_dmd_1.Value = true, DisplayMode.Edit, DisplayMode.Disabled)
+        FontWeight: =FontWeight.Semibold
+        Height: =34
+        Items: =Distinct(Type_congé, Type_Congé)
+        OnSelect: =
+        Reset: =varReset
+        Width: =190
+        X: =686
+        Y: =262
+        ZIndex: =53
+
+    type2 As dropdown:
+        DisplayMode: =If(Cbx_dmd_2.Value = true, DisplayMode.Edit, DisplayMode.Disabled)
+        FontWeight: =FontWeight.Semibold
+        Height: =34
+        Items: =Distinct(Type_congé, Type_Congé)
+        Reset: =varReset
+        Visible: =If(!IsBlank(trs_var),false, If(Cbx_dmd_1.Value = true, true, false))
+        Width: =190
+        X: =686
+        Y: =349
+        ZIndex: =54
+
+    type3 As dropdown:
+        DisplayMode: =If(Cbx_dmd_3.Value = true, DisplayMode.Edit, DisplayMode.Disabled)
+        FontWeight: =FontWeight.Semibold
+        Height: =34
+        Items: =Distinct(Type_congé, Type_Congé)
+        Reset: =varReset
+        Visible: =If(Cbx_dmd_2.Value = true, true, false)
+        Width: =190
+        X: =686
+        Y: =435
+        ZIndex: =55
+
+    type4 As dropdown:
+        DisplayMode: =If(Cbx_dmd_4.Value = true, DisplayMode.Edit, DisplayMode.Disabled)
+        FontWeight: =FontWeight.Semibold
+        Height: =34
+        Items: =Distinct(Type_congé, Type_Congé)
+        Reset: =varReset
+        Visible: =If(Cbx_dmd_3.Value = true, true, false)
+        Width: =190
+        X: =686
+        Y: =526
+        ZIndex: =56
+
+    type5 As dropdown:
+        DisplayMode: =If(Cbx_dmd_5.Value = true, DisplayMode.Edit, DisplayMode.Disabled)
+        FontWeight: =FontWeight.Semibold
+        Height: =34
+        Items: =Distinct(Type_congé, Type_Congé)
+        Reset: =varReset
+        Visible: =If(Cbx_dmd_4.Value = true, true, false)
+        Width: =190
+        X: =686
+        Y: =609
+        ZIndex: =57
+
+    Label8_2 As label:
+        FontWeight: =FontWeight.Semibold
+        Height: =44
+        Size: =15
+        Text: |-
+            ="Motif de l'abscence :"
+        Width: =223
+        X: =676
+        Y: =209
+        ZIndex: =58
+
+    Button1 As button:
+        Fill: =RGBA(255, 0, 0, 1)
+        Height: =35
+        OnSelect: |+
+            =Set(varReset, false);
+            Set(varReset, true)
+            
+        Size: =13
+        Text: ="Remise a 0"
+        Width: =143
+        X: =958
+        Y: =643
+        ZIndex: =59
+
+    Button2 As button:
+        Height: =35
+        OnSelect: |-
+            =If(Cbx_dmd_1.Value = true,
+            Patch(
+                TB_Demandes,
+                First(
+                        Filter(
+                            TB_Demandes,
+                            ID = trs_var
+                        )
+                    ),
+                {Titre: Concatenate("Demande " , type1.SelectedText.Value)},
+                {'Prenom NOM': User().FullName},
+                {Mail: User().Email},
+                {Statut: "En attente"},
+                {Etat: "Brouillon"},
+                {Date_Debut: C_DMD1_D.SelectedDate},
+                {Date_retour: DateValue(C_DMD1_R.SelectedDate,"fr")},
+                {Type_C: type1.SelectedText.Value},
+                {Periode: If(type1.SelectedText.Value = "RTT", slct_periode_rtt.SelectedText.Value, slct_periode_congé.SelectedText.Value)},
+                {Commentaire_1: commentaire_1.Text},
+                {'Situation CNETP': "A déclarer"}
+            )); 
+            Back()
+        Size: =13
+        Text: ="Enregistrer"
+        Width: =149
+        X: =1184
+        Y: =643
+        ZIndex: =60
+
+    Button4 As button:
+        Fill: =RGBA(255, 191, 0, 1)
+        FontWeight: =FontWeight.Bold
+        Height: =35
+        OnSelect: |-
+            =If(
+                !IsBlank(trs_var),
+                Patch(
+                    TB_Demandes,
+                    First(
+                        Filter(
+                            TB_Demandes,
+                            ID = trs_var
+                        )
+                    ),
+                    {Etat: "Envoyé"},
+                    {Date_Debut: C_DMD1_D.SelectedDate},
+                    {
+                        Date_retour: DateValue(
+                            C_DMD1_R.SelectedDate,
+                            "fr"
+                        )
+                    },
+                    {Type_C: type1.SelectedText.Value},
+                    {
+                        Periode: If(
+                            type1.SelectedText.Value = "RTT",
+                            slct_periode_rtt.SelectedText.Value,
+                            slct_periode_congé.SelectedText.Value
+                        )
+                    },
+                    {Commentaire_1: commentaire_1.Text},
+                    {Superieur: LookUp(TB_Utilisateurs, User().Email = 'Prenom NOM'.Email, 'Supérieur Hiérarchique'.Email)}
+                )
+            );
+            Back()
+        Size: =13
+        Text: ="Envoyer"
+        Width: =192
+        X: =1048
+        Y: =696
+        ZIndex: =61
+
+    Rectangle6_5 As rectangle:
+        Fill: =RGBA(0, 18, 107, 1)
+        Height: =208
+        Width: =1
+        X: =1190
+        Y: =246
+        ZIndex: =62
+
+    c_t_general As label:
+        Align: =Align.Center
+        Height: =31
+        Text: =LookUp(TB_Periode_Congé, slct_periode_congé.SelectedText.Value = Concatenate(Year(PeriodeDebut), " au ", Year(PeriodeFin)), Droits_General)
+        Width: =91
+        X: =1099
+        Y: =251
+        ZIndex: =63
+
+    c_t_5seme_s As label:
+        Align: =Align.Center
+        Height: =28
+        Text: =LookUp(TB_Periode_Congé, slct_periode_congé.SelectedText.Value = Concatenate(Year(PeriodeDebut), " au ", Year(PeriodeFin)), Droits_cin_semaine)
+        Width: =91
+        X: =1099
+        Y: =297
+        ZIndex: =65
+
+    c_t_fractio As label:
+        Align: =Align.Center
+        Height: =28
+        Text: =LookUp(TB_Periode_Congé, slct_periode_congé.SelectedText.Value = Concatenate(Year(PeriodeDebut), " au ", Year(PeriodeFin)), Droits_Fractionnement)
+        Width: =98
+        X: =1099
+        Y: =337
+        ZIndex: =67
+
+    c_t_ancienn As label:
+        Align: =Align.Center
+        Height: =28
+        Text: =LookUp(TB_Periode_Congé, slct_periode_congé.SelectedText.Value = Concatenate(Year(PeriodeDebut), " au ", Year(PeriodeFin)), Droits_Ancienneté)
+        Width: =98
+        X: =1099
+        Y: =377
+        ZIndex: =69
+
+    c_t_rtt As label:
+        Align: =Align.Center
+        Height: =28
+        Text: =LookUp(TB_Periode_RTT, slct_periode_rtt.SelectedText.Value = Concatenate(Year(Periode_Debut), " au ", Year(Periode_Fin)), Solde_RTT)
+        Width: =98
+        X: =1099
+        Y: =419
+        ZIndex: =71
+
+    Label9_9 As label:
+        Align: =Align.Center
+        Height: =28
+        Text: =
+        Width: =60
+        X: =1283
+        Y: =333
+        ZIndex: =72
+
+    slct_periode_congé As dropdown:
+        Height: =35
+        Items: =LastN(Distinct(TB_Periode_Congé, Concatenate(Year(PeriodeDebut), " au " , Year(PeriodeFin))), 2)
+        Size: =11
+        Width: =159
+        X: =1004
+        Y: =73
+        ZIndex: =73
+
+    Label9 As label:
+        Size: =10
+        Text: |-
+            ="Periode congé :"
+        Width: =113
+        X: =889
+        Y: =68
+        ZIndex: =74
+
+    TextInput7_5 As text:
+        Align: =Align.Center
+        Default: =Text(c_t_rtt - TextInput7_14)
+        DisplayMode: =DisplayMode.View
+        Height: =31
+        PaddingLeft: =5
+        Width: =74
+        X: =1265
+        Y: =417
+        ZIndex: =75
+
+    TextInput7_6 As text:
+        Align: =Align.Center
+        Default: |-
+            =c_t_ancienn - If(
+                Cbx_dmd_1.Value = true And type1.SelectedText.Value = "Ancienneté",
+                TextInput7.Text
+            ) - If(
+                Cbx_dmd_2.Value = true And type2.SelectedText.Value = "Ancienneté",
+                TextInput7_1.Text
+            ) - If(
+                Cbx_dmd_3.Value = true And type3.SelectedText.Value = "Ancienneté",
+                TextInput7_2.Text
+            )- If(
+                Cbx_dmd_4.Value = true And type4.SelectedText.Value = "Ancienneté",
+                TextInput7_3.Text
+            )- If(
+                Cbx_dmd_5.Value = true And type5.SelectedText.Value = "Ancienneté",
+                TextInput7_4.Text
+            )
+        DisplayMode: =DisplayMode.View
+        Height: =31
+        PaddingLeft: =5
+        Width: =74
+        X: =1265
+        Y: =375
+        ZIndex: =76
+
+    TextInput7_7 As text:
+        Align: =Align.Center
+        Default: |-
+            =c_t_fractio - If(
+                Cbx_dmd_1.Value = true And type1.SelectedText.Value = "Fractionnement",
+                TextInput7.Text
+            ) - If(
+                Cbx_dmd_2.Value = true And type2.SelectedText.Value = "Fractionnement",
+                TextInput7_1.Text
+            ) - If(
+                Cbx_dmd_3.Value = true And type3.SelectedText.Value = "Fractionnement",
+                TextInput7_2.Text
+            )- If(
+                Cbx_dmd_4.Value = true And type4.SelectedText.Value = "Fractionnement",
+                TextInput7_3.Text
+            )- If(
+                Cbx_dmd_5.Value = true And type5.SelectedText.Value = "Fractionnement",
+                TextInput7_4.Text
+            )
+        DisplayMode: =DisplayMode.View
+        Height: =31
+        PaddingLeft: =5
+        Width: =72
+        X: =1267
+        Y: =335
+        ZIndex: =77
+
+    TextInput7_8 As text:
+        Align: =Align.Center
+        Default: |-
+            =c_t_5seme_s - If(
+                Cbx_dmd_1.Value = true And type1.SelectedText.Value = "5-ème semaine",
+                TextInput7.Text
+            ) - If(
+                Cbx_dmd_2.Value = true And type2.SelectedText.Value = "5-ème semaine",
+                TextInput7_1.Text
+            ) - If(
+                Cbx_dmd_3.Value = true And type3.SelectedText.Value = "5-ème semaine",
+                TextInput7_2.Text
+            )- If(
+                Cbx_dmd_4.Value = true And type4.SelectedText.Value = "5-ème semaine",
+                TextInput7_3.Text
+            )- If(
+                Cbx_dmd_5.Value = true And type5.SelectedText.Value = "5-ème semaine",
+                TextInput7_4.Text
+            )
+        DisplayMode: =DisplayMode.View
+        Height: =31
+        PaddingLeft: =5
+        Width: =73
+        X: =1266
+        Y: =295
+        ZIndex: =78
+
+    TextInput7_9 As text:
+        Align: =Align.Center
+        Default: =Text(c_t_general - Label12)
+        DisplayMode: =DisplayMode.View
+        Height: =31
+        PaddingLeft: =5
+        Width: =72
+        X: =1267
+        Y: =251
+        ZIndex: =79
+
+    slct_periode_rtt As dropdown:
+        Height: =32
+        Items: =Distinct(TB_Periode_RTT, Concatenate(Year(Periode_Debut), " au ", Year(Periode_Fin)))
+        Size: =11
+        Width: =159
+        X: =1004
+        Y: =119
+        ZIndex: =80
+
+    Label9_1 As label:
+        Size: =10
+        Text: |-
+            ="Periode RTT :"
+        Width: =111
+        X: =891
+        Y: =114
+        ZIndex: =81
+
+    Label7_13 As label:
+        Align: =Align.Center
+        FontWeight: =FontWeight.Bold
+        Text: ="Rest."
+        Width: =75
+        X: =1266
+        Y: =208
+        ZIndex: =82
+
+    Rectangle6_6 As rectangle:
+        Fill: =RGBA(0, 18, 107, 1)
+        Height: =208
+        Width: =1
+        X: =1266
+        Y: =246
+        ZIndex: =83
+
+    Label7_28 As label:
+        Align: =Align.Center
+        FontWeight: =FontWeight.Bold
+        Text: ="Pris"
+        Width: =91
+        X: =1184
+        Y: =208
+        ZIndex: =84
+
+    TextInput7_11 As text:
+        Align: =Align.Center
+        Default: =CountIf(TB_Demandes, User().Email = Mail, Type_C = "5-ème semaine", Periode = slct_periode_congé.SelectedText.Value, Statut = "Approuvé")
+        DisplayMode: =DisplayMode.View
+        Height: =31
+        PaddingLeft: =5
+        Width: =72
+        X: =1192
+        Y: =295
+        ZIndex: =86
+
+    TextInput7_12 As text:
+        Align: =Align.Center
+        Default: =CountIf(TB_Demandes, User().Email = Mail, Type_C = "Fractionnement", Periode = slct_periode_congé.SelectedText.Value, Statut = "Approuvé")
+        DisplayMode: =DisplayMode.View
+        Height: =31
+        PaddingLeft: =5
+        Width: =72
+        X: =1192
+        Y: =335
+        ZIndex: =87
+
+    TextInput7_13 As text:
+        Align: =Align.Center
+        Default: =CountIf(TB_Demandes, User().Email = Mail, Type_C = "Ancienneté", Periode = slct_periode_congé.SelectedText.Value, Statut = "Approuvé")
+        DisplayMode: =DisplayMode.View
+        Height: =31
+        PaddingLeft: =5
+        Width: =72
+        X: =1192
+        Y: =375
+        ZIndex: =88
+
+    TextInput7_14 As text:
+        Align: =Align.Center
+        Default: =CountIf(TB_Demandes, User().Email = Mail, Type_C = "RTT", Periode = slct_periode_rtt.SelectedText.Value, Statut = "Approuvé")
+        DisplayMode: =DisplayMode.View
+        Height: =31
+        PaddingLeft: =5
+        Width: =72
+        X: =1192
+        Y: =417
+        ZIndex: =89
+
+    Label12 As label:
+        Align: =Align.Center
+        Height: =33
+        Text: =CountIf(TB_Demandes, User().Email = Mail, Type_C = "Congé payé", Periode = slct_periode_congé.SelectedText.Value, Statut = "Approuvé")
+        Width: =72
+        X: =1193
+        Y: =251
+        ZIndex: =90
+
+    TextInput7_10 As text:
+        Align: =Align.Center
+        Default: |-
+            =If(
+                DateDiff(
+                    C_DMD1_D,
+                    C_DMD1_R,
+                    TimeUnit.Days
+                ) = 0 And type1.SelectedText.Value = "RTT",
+                1,
+                If(
+                    DateDiff(
+                        C_DMD1_D,
+                        C_DMD1_R,
+                        TimeUnit.Days
+                    ) = 1,
+                    0,
+                    DateDiff(
+                        C_DMD1_D,
+                        C_DMD1_R,
+                        TimeUnit.Days
+                    )
+                )
+            )
+        DisplayMode: =If(Cbx_dmd_1.Value = true, DisplayMode.Edit, DisplayMode.Disabled)
+        FontWeight: =FontWeight.Semibold
+        Height: =34
+        PaddingLeft: =5
+        Width: =48
+        X: =601
+        Y: =261
+        ZIndex: =91
+
+    TextInput7_15 As text:
+        Align: =Align.Center
+        Default: |-
+            =If(
+                DateDiff(
+                    C_DMD2_D,
+                    C_DMD2_R,
+                    TimeUnit.Days
+                ) = 0 And type2.SelectedText.Value = "RTT",
+                1,
+                If(
+                    DateDiff(
+                        C_DMD2_D,
+                        C_DMD2_R,
+                        TimeUnit.Days
+                    ) = 1,
+                    0,
+                    DateDiff(
+                        C_DMD2_D,
+                        C_DMD2_R,
+                        TimeUnit.Days
+                    )
+                )
+            )
+        DisplayMode: =If(Cbx_dmd_2.Value = true, DisplayMode.Edit, DisplayMode.Disabled)
+        FontWeight: =FontWeight.Semibold
+        Height: =34
+        PaddingLeft: =5
+        Size: =15
+        Visible: =If(!IsBlank(trs_var),false, If(Cbx_dmd_1.Value = true, true, false))
+        Width: =48
+        X: =601
+        Y: =348
+        ZIndex: =92
+
+    TextInput7_16 As text:
+        Align: =Align.Center
+        Default: |-
+            =If(
+                DateDiff(
+                    C_DMD3_D,
+                    C_DMD3_R,
+                    TimeUnit.Days
+                ) = 0 And type3.SelectedText.Value = "RTT",
+                1,
+                If(
+                    DateDiff(
+                        C_DMD3_D,
+                        C_DMD3_R,
+                        TimeUnit.Days
+                    ) = 1,
+                    0,
+                    DateDiff(
+                        C_DMD3_D,
+                        C_DMD3_R,
+                        TimeUnit.Days
+                    )
+                )
+            )
+        DisplayMode: =If(Cbx_dmd_3.Value = true, DisplayMode.Edit, DisplayMode.Disabled)
+        FontWeight: =FontWeight.Semibold
+        Height: =34
+        PaddingLeft: =5
+        Size: =15
+        Visible: =If(Cbx_dmd_2.Value = true, true, false)
+        Width: =48
+        X: =601
+        Y: =434
+        ZIndex: =93
+
+    TextInput7_17 As text:
+        Align: =Align.Center
+        Default: |-
+            =If(
+                DateDiff(
+                    C_DMD4_D,
+                    C_DMD4_R,
+                    TimeUnit.Days
+                ) = 0 And type4.SelectedText.Value = "RTT",
+                1,
+                If(
+                    DateDiff(
+                        C_DMD4_D,
+                        C_DMD4_R,
+                        TimeUnit.Days
+                    ) = 1,
+                    0,
+                    DateDiff(
+                        C_DMD4_D,
+                        C_DMD4_R,
+                        TimeUnit.Days
+                    )
+                )
+            )
+        DisplayMode: =If(Cbx_dmd_4.Value = true, DisplayMode.Edit, DisplayMode.Disabled)
+        FontWeight: =FontWeight.Semibold
+        Height: =34
+        PaddingLeft: =5
+        Size: =15
+        Visible: =If(Cbx_dmd_3.Value = true, true, false)
+        Width: =50
+        X: =599
+        Y: =525
+        ZIndex: =94
+
+    TextInput7_18 As text:
+        Align: =Align.Center
+        Default: |-
+            =If(
+                DateDiff(
+                    C_DMD5_D,
+                    C_DMD5_R,
+                    TimeUnit.Days
+                ) = 0 And type5.SelectedText.Value = "RTT",
+                1,
+                If(
+                    DateDiff(
+                        C_DMD5_D,
+                        C_DMD5_R,
+                        TimeUnit.Days
+                    ) = 1,
+                    0,
+                    DateDiff(
+                        C_DMD5_D,
+                        C_DMD5_R,
+                        TimeUnit.Days
+                    )
+                )
+            )
+        DisplayMode: =If(Cbx_dmd_5.Value = true, DisplayMode.Edit, DisplayMode.Disabled)
+        FontWeight: =FontWeight.Semibold
+        Height: =34
+        PaddingLeft: =5
+        Size: =15
+        Visible: =If(Cbx_dmd_4.Value = true, true, false)
+        Width: =48
+        X: =601
+        Y: =608
+        ZIndex: =95
+
+    Label9_2 As label:
+        Height: =38
+        Size: =10
+        Text: |-
+            =Concatenate(
+                "Du ",
+                LookUp(
+                    TB_Periode_Congé,
+                    slct_periode_congé.SelectedText.Value = Concatenate(
+                        Year(PeriodeDebut),
+                        " au ",
+                        Year(PeriodeFin)
+                    ),
+                    Day(PeriodeDebut)
+                ),
+                "/",
+                LookUp(
+                    TB_Periode_Congé,
+                    slct_periode_congé.SelectedText.Value = Concatenate(
+                        Year(PeriodeDebut),
+                        " au ",
+                        Year(PeriodeFin)
+                    ),
+                    Month(PeriodeDebut)
+                ),
+                "/",
+                LookUp(
+                    TB_Periode_Congé,
+                    slct_periode_congé.SelectedText.Value = Concatenate(
+                        Year(PeriodeDebut),
+                        " au ",
+                        Year(PeriodeFin)
+                    ),
+                    Year(PeriodeDebut)
+                ),
+                " au ",
+                LookUp(
+                    TB_Periode_Congé,
+                    slct_periode_congé.SelectedText.Value = Concatenate(
+                        Year(PeriodeDebut),
+                        " au ",
+                        Year(PeriodeFin)
+                    ),
+                    Day(PeriodeFin)
+                ),
+                "/",
+                LookUp(
+                    TB_Periode_Congé,
+                    slct_periode_congé.SelectedText.Value = Concatenate(
+                        Year(PeriodeDebut),
+                        " au ",
+                        Year(PeriodeFin)
+                    ),
+                    Month(PeriodeFin)
+                ),
+                "/",
+                LookUp(
+                    TB_Periode_Congé,
+                    slct_periode_congé.SelectedText.Value = Concatenate(
+                        Year(PeriodeDebut),
+                        " au ",
+                        Year(PeriodeFin)
+                    ),
+                    Year(PeriodeFin)
+                )
+            )
+        Width: =195
+        X: =1163
+        Y: =70
+        ZIndex: =96
+
+    Label9_3 As label:
+        Height: =38
+        Size: =10
+        Text: |-
+            =Concatenate(
+                "Du ",
+                LookUp(
+                    TB_Periode_RTT,
+                    slct_periode_rtt.SelectedText.Value = Concatenate(
+                        Year(Periode_Debut),
+                        " au ",
+                        Year(Periode_Fin)
+                    ),
+                    Day(Periode_Debut)
+                ),
+                "/",
+                LookUp(
+                    TB_Periode_RTT,
+                    slct_periode_rtt.SelectedText.Value = Concatenate(
+                        Year(Periode_Debut),
+                        " au ",
+                        Year(Periode_Fin)
+                    ),
+                    Month(Periode_Debut)
+                ),
+                "/",
+                LookUp(
+                    TB_Periode_RTT,
+                    slct_periode_rtt.SelectedText.Value = Concatenate(
+                        Year(Periode_Debut),
+                        " au ",
+                        Year(Periode_Fin)
+                    ),
+                    Year(Periode_Debut)
+                ),
+                " au ",
+                LookUp(
+                    TB_Periode_RTT,
+                    slct_periode_rtt.SelectedText.Value = Concatenate(
+                        Year(Periode_Debut),
+                        " au ",
+                        Year(Periode_Fin)
+                    ),
+                    Day(Periode_Fin)
+                ),
+                "/",
+                LookUp(
+                    TB_Periode_RTT,
+                    slct_periode_rtt.SelectedText.Value = Concatenate(
+                        Year(Periode_Debut),
+                        " au ",
+                        Year(Periode_Fin)
+                    ),
+                    Month(Periode_Fin)
+                ),
+                "/",
+                LookUp(
+                    TB_Periode_RTT,
+                    slct_periode_rtt.SelectedText.Value = Concatenate(
+                        Year(Periode_Debut),
+                        " au ",
+                        Year(Periode_Fin)
+                    ),
+                    Year(Periode_Fin)
+                )
+            )
+        Width: =195
+        X: =1163
+        Y: =116
+        ZIndex: =97
+

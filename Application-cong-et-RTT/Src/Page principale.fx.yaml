@@ -1,0 +1,230 @@
+"'Page principale' As screen.'tabletAutoLayout_HeaderMainFooter_ver1.0'":
+
+    ScreenContainer1 As groupContainer.verticalAutoLayoutContainer:
+        Height: =Parent.Height
+        LayoutAlignItems: =LayoutAlignItems.Stretch
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutMode: =LayoutMode.Auto
+        Width: =Parent.Width
+        ZIndex: =1
+
+        HeaderContainer1 As groupContainer.horizontalAutoLayoutContainer:
+            FillPortions: =0
+            Height: =60
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            ZIndex: =2
+
+            Rectangle1 As rectangle:
+                AlignInContainer: =AlignInContainer.Start
+                Fill: =RGBA(0, 44, 119, 1)
+                FillPortions: =1
+                Height: =60
+                LayoutMinHeight: =50
+                ZIndex: =1
+
+        MainSectionContainer1 As groupContainer.verticalAutoLayoutContainer:
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            ZIndex: =3
+
+            Rectangle3 As rectangle:
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =10
+                Width: =10
+                ZIndex: =1
+
+        FooterContainer1 As groupContainer.horizontalAutoLayoutContainer:
+            FillPortions: =0
+            Height: =45
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            ZIndex: =4
+
+            Rectangle2 As rectangle:
+                Fill: =RGBA(0, 44, 119, 1)
+                FillPortions: =1
+                Height: =45
+                ZIndex: =1
+
+    Label1 As label:
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =47
+        Size: =16
+        Text: ="V 1.0"
+        Width: =87
+        X: =1278
+        Y: =720
+        ZIndex: =3
+
+    TextInput2 As text:
+        BorderThickness: =0
+        Color: =RGBA(255, 255, 255, 1)
+        Default: =Concatenate("Bonjour " , User().FullName)
+        DisplayMode: =DisplayMode.View
+        Fill: =RGBA(0, 0, 0, 0)
+        Height: =41
+        Size: =20
+        Width: =602
+        X: =16
+        Y: =12
+        ZIndex: =4
+
+    Rectangle4 As rectangle:
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =2
+        Fill: =RGBA(215, 223, 240, 1)
+        Height: =379
+        Width: =1102
+        X: =132
+        Y: =250
+        ZIndex: =5
+
+    Label2 As label:
+        Color: =RGBA(102, 102, 102, 1)
+        FontWeight: =FontWeight.Bold
+        Height: =68
+        Size: =30
+        Text: ="Demande Congé et RTT"
+        Width: =484
+        X: =441
+        Y: =54
+        ZIndex: =6
+
+    Circle2 As circle:
+        Height: =200
+        Width: =200
+        X: =227
+        Y: =324
+        ZIndex: =7
+
+    Circle2_1 As circle:
+        DisabledFill: =RGBA(149, 149, 149, 1)
+        DisplayMode: =If(!IsBlank(LookUp(TB_Utilisateurs, User().Email = 'Prenom NOM'.Email)), DisplayMode.Edit, DisplayMode.Disabled)
+        Height: =200
+        Width: =200
+        X: =593
+        Y: =324
+        ZIndex: =8
+
+    Circle2_2 As circle:
+        DisabledFill: =RGBA(149, 149, 149, 1)
+        Height: =200
+        Width: =200
+        X: =952
+        Y: =324
+        ZIndex: =9
+
+    Image1 As image:
+        Image: ='tso-1673859373'
+        Visible: =If(LookUp(TB_Utilisateurs, User().Email = 'Prenom NOM'.Email, Société).Value =  "TSO", true, false)
+        Width: =275
+        X: =132
+        Y: =150
+        ZIndex: =10
+
+    Icon3 As icon.Calendar:
+        Color: =RGBA(255, 255, 255, 1)
+        DisabledColor: =RGBA(237, 237, 237, 1)
+        DisplayMode: =If(!IsBlank(LookUp(TB_Utilisateurs, User().Email = 'Prenom NOM'.Email)), DisplayMode.Edit, DisplayMode.Disabled)
+        Height: =200
+        Icon: =Icon.AddToCalendar
+        OnSelect: =Navigate('Nouvelle demande', ScreenTransition.Fade)
+        PaddingBottom: =50
+        PaddingLeft: =50
+        PaddingRight: =50
+        PaddingTop: =50
+        Width: =200
+        X: =593
+        Y: =324
+        ZIndex: =11
+
+    Icon3_1 As icon.Calendar:
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =200
+        Icon: =Icon.Person
+        OnSelect: =Navigate('Mes informations', ScreenTransition.Cover); Set(status, true)
+        PaddingBottom: =50
+        PaddingLeft: =50
+        PaddingRight: =50
+        PaddingTop: =50
+        Width: =200
+        X: =227
+        Y: =321
+        ZIndex: =12
+
+    Icon3_2 As icon.Calendar:
+        Color: =RGBA(255, 255, 255, 1)
+        DisabledColor: =RGBA(237, 237, 237, 1)
+        Height: =200
+        Icon: =Icon.LogJournal
+        OnSelect: =Navigate('Mes demandes',ScreenTransition.Cover)
+        PaddingBottom: =50
+        PaddingLeft: =50
+        PaddingRight: =50
+        PaddingTop: =50
+        Width: =200
+        X: =952
+        Y: =324
+        ZIndex: =13
+
+    Label3 As label:
+        Color: =RGBA(51, 51, 51, 1)
+        Height: =82
+        Size: =17
+        Text: ="Mes informations"
+        Width: =200
+        X: =227
+        Y: =504
+        ZIndex: =14
+
+    Label3_1 As label:
+        Color: =RGBA(51, 51, 51, 1)
+        Height: =82
+        Size: =17
+        Text: ="Nouvelle demande"
+        Width: =215
+        X: =593
+        Y: =504
+        ZIndex: =15
+
+    Label3_2 As label:
+        Color: =RGBA(51, 51, 51, 1)
+        Height: =82
+        Size: =17
+        Text: ="Mes demandes"
+        Width: =178
+        X: =971
+        Y: =504
+        ZIndex: =16
+
+    Button5 As button:
+        Height: =44
+        OnSelect: =Navigate('Vue d''ensemble',ScreenTransition.Fade)
+        Text: ="Panneau Administrateur"
+        Visible: =If(!IsBlank(LookUp(TB_Utilisateurs, User().Email = 'Prenom NOM'.Email && Role.Value = "Administrateur" Or Role.Value = "Valideur")), true, false)
+        Width: =287
+        X: =539
+        Y: =652
+        ZIndex: =17
+
+    Image3 As image:
+        Image: ='22853_20190523_nge-contracting'
+        Visible: =If(LookUp(TB_Utilisateurs, User().Email = 'Prenom NOM'.Email, Société).Value =  "NGE Contracting", true, false)
+        Width: =275
+        X: =132
+        Y: =150
+        ZIndex: =18
+
+    Icon1 As icon.Information:
+        Height: =36
+        Icon: =Icon.Information
+        Width: =47
+        X: =1298
+        Y: =70
+        ZIndex: =19
+

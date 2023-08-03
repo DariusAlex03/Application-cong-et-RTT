@@ -1,0 +1,81 @@
+{
+  "322c48f7-a4f8-4cb1-9f31-6713da1b6688": {
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "Utilisateurs d’Office\u00A0365",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1644/1.0.1644.3342/office365users/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_office365users",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {},
+    "dataSources": [
+      "Utilisateursd’Office365"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "322c48f7-a4f8-4cb1-9f31-6713da1b6688"
+  },
+  "7de25db6-94d5-46b2-8503-8b067387d82b": {
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "SharePoint",
+      "iconUri": "https://connectoricons-prod.azureedge.net/u/shgogna/globalperconnector-train1/1.0.1639.3312/sharepointonline/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_sharepointonline",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {
+      "https://nge1.sharepoint.com/sites/GestionCongeRTT": {
+        "dataSources": {
+          "TB_Utilisateurs": {
+            "tableName": "a20f1adc-0273-4ebb-9d1e-e95bb39bddbd"
+          }
+        }
+      }
+    },
+    "dataSources": [
+      "TB_Utilisateurs"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "7de25db6-94d5-46b2-8503-8b067387d82b"
+  },
+  "a8c951a1-d52a-48d7-b97a-a878f0e77259": {
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "SharePoint",
+      "iconUri": "https://connectoricons-prod.azureedge.net/u/shgogna/globalperconnector-train1/1.0.1639.3312/sharepointonline/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_sharepointonline",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {
+      "https://nge1.sharepoint.com/sites/GestionCongeRTT": {
+        "dataSources": {
+          "TB_Demandes": {
+            "tableName": "abdc4be3-1ecf-42f7-b06c-cf20e45fdf97"
+          },
+          "TB_Periode_Congé": {
+            "tableName": "b61e204f-1a32-42fb-ab42-6b5fbc7097c1"
+          },
+          "TB_Periode_RTT": {
+            "tableName": "c9738de3-30a4-40bc-9164-90df9cc74b28"
+          },
+          "Type_congé": {
+            "tableName": "bc5979a5-1d41-44c5-8d48-4d3e4e480a2a"
+          }
+        }
+      }
+    },
+    "dataSources": [
+      "TB_Demandes",
+      "Type_congé",
+      "TB_Periode_Congé",
+      "TB_Periode_RTT"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "a8c951a1-d52a-48d7-b97a-a878f0e77259"
+  }
+}

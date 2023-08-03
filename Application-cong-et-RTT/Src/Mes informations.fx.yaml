@@ -1,0 +1,557 @@
+"'Mes informations' As screen.'tabletAutoLayout_HeaderMainFooter_ver1.0'":
+    Fill: =Color.White 
+
+    ScreenContainer1_1 As groupContainer.verticalAutoLayoutContainer:
+        Height: =Parent.Height
+        LayoutAlignItems: =LayoutAlignItems.Stretch
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutMode: =LayoutMode.Auto
+        Width: =Parent.Width
+        ZIndex: =1
+
+        HeaderContainer1_1 As groupContainer.horizontalAutoLayoutContainer:
+            FillPortions: =0
+            Height: =60
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            ZIndex: =2
+
+            Rectangle1_1 As rectangle:
+                AlignInContainer: =AlignInContainer.Start
+                Fill: =RGBA(0, 44, 119, 1)
+                FillPortions: =1
+                Height: =60
+                LayoutMinHeight: =50
+                ZIndex: =1
+
+        MainSectionContainer1_1 As groupContainer.verticalAutoLayoutContainer:
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            ZIndex: =3
+
+            Rectangle3_1 As rectangle:
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =10
+                Width: =10
+                ZIndex: =1
+
+        FooterContainer1_1 As groupContainer.horizontalAutoLayoutContainer:
+            FillPortions: =0
+            Height: =45
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            ZIndex: =4
+
+            Rectangle2_1 As rectangle:
+                Fill: =RGBA(0, 44, 119, 1)
+                FillPortions: =1
+                Height: =45
+                ZIndex: =1
+
+    Rectangle4_1 As rectangle:
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =2
+        Fill: =RGBA(215, 223, 240, 1)
+        Height: =543
+        Width: =695
+        X: =40
+        Y: =140
+        ZIndex: =5
+
+    Rectangle5 As rectangle:
+        Height: =65
+        Width: =334
+        X: =20
+        Y: =95
+        ZIndex: =6
+
+    Label4 As label:
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =33
+        Size: =20
+        Text: ="Mes informations"
+        Width: =314
+        X: =30
+        Y: =111
+        ZIndex: =7
+
+    Lab_nom_prenom As label:
+        Height: =44
+        Size: =15
+        Text: |-
+            ="Prenom NOM : "
+        Width: =152
+        X: =75
+        Y: =239
+        ZIndex: =9
+
+    ins_nom_prenom As text:
+        Default: =Text(User().FullName)
+        DisplayMode: =DisplayMode.View
+        FontWeight: =FontWeight.Bold
+        Height: =42
+        Size: =15
+        Width: =364
+        X: =227
+        Y: =239
+        ZIndex: =11
+
+    Icon4 As icon.BackArrow:
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =59
+        Icon: =Icon.BackArrow
+        OnSelect: =Back()
+        PaddingBottom: =10
+        PaddingLeft: |
+            =10
+        PaddingRight: =10
+        PaddingTop: =10  
+        Width: =75
+        ZIndex: =12
+
+    lab_mail As label:
+        Height: =44
+        Size: =15
+        Text: |-
+            ="Mail : "
+        Width: =73
+        X: =75
+        Y: =310
+        ZIndex: =13
+
+    ins_mail As text:
+        Default: =Text(LookUp(TB_Utilisateurs,User().Email = 'Prenom NOM'.Email, Lower('Prenom NOM'.Email)))
+        DisplayMode: =DisplayMode.View
+        FontWeight: =FontWeight.Bold
+        Size: =15
+        Width: =364
+        X: =227
+        Y: =310
+        ZIndex: =14
+
+    lab_matricule As label:
+        Height: =44
+        Size: =15
+        Text: |-
+            ="Matricule : "
+        Width: =110
+        X: =75
+        Y: =384
+        ZIndex: =15
+
+    ins_matricule As text:
+        Default: |-
+            =Text(
+                LookUp(
+                    TB_Utilisateurs,
+                    Lower(User().Email) = 'Prenom NOM'.Email,
+                    Matricule
+                )
+            )
+        DisplayMode: |-
+            =If(
+                !IsBlank(
+                    LookUp(
+                        TB_Utilisateurs,
+                        Lower(User().Email) = 'Prenom NOM'.Email
+                    )
+                ),
+                DisplayMode.View,
+                DisplayMode.Edit
+            )
+        FontWeight: =FontWeight.Bold
+        Size: =15
+        Width: =364
+        X: =227
+        Y: =388
+        ZIndex: =16
+
+    Rectangle6_1 As rectangle:
+        BorderThickness: =2
+        Fill: =RGBA(0, 0, 0, 0)
+        Height: =246
+        Width: =390
+        X: =866
+        Y: =319
+        ZIndex: =17
+
+    Label6_1 As label:
+        FontWeight: =FontWeight.Bold
+        Height: =46
+        Size: =17
+        Text: ="Compteur"
+        Width: =143
+        X: =866
+        Y: =273
+        ZIndex: =18
+
+    TextInput5 As text:
+        BorderThickness: =0
+        Default: |-
+            ="Informations : "
+        DisplayMode: =DisplayMode.View
+        FontWeight: =FontWeight.Bold
+        Size: =17
+        X: =853
+        Y: =95
+        ZIndex: =19
+
+    TextInput5_2 As text:
+        BorderThickness: =0
+        Default: |-
+            =Concatenate("Mail Supérieur : ", LookUp(TB_Utilisateurs, Lower(User().Email) = 'Prenom NOM'.Email, Lower('Supérieur Hiérarchique'.Email)))
+        DisplayMode: =DisplayMode.View
+        Size: =17
+        Width: =500
+        X: =866
+        Y: =135
+        ZIndex: =21
+
+    Label7 As label:
+        Align: =Align.Center
+        FontWeight: =FontWeight.Bold
+        Size: =15
+        Text: ="Type"
+        Width: =194
+        X: =866
+        Y: =321
+        ZIndex: =22
+
+    Label7_1 As label:
+        Align: =Align.Center
+        FontWeight: =FontWeight.Bold
+        Size: =15
+        Text: ="Jours"
+        Width: =194
+        X: =1062
+        Y: =321
+        ZIndex: =23
+
+    Rectangle7 As rectangle:
+        Fill: =RGBA(0, 18, 107, 1)
+        Height: =246
+        Width: =2
+        X: =1060
+        Y: =319
+        ZIndex: =24
+
+    Label7_2 As label:
+        FontWeight: =FontWeight.Bold
+        Size: =15
+        Text: ="Congé payé "
+        Width: =190
+        X: =872
+        Y: =363
+        ZIndex: =25
+
+    Label7_3 As label:
+        FontWeight: =FontWeight.Bold
+        Size: =15
+        Text: ="5 ème semaine"
+        Width: =190
+        X: =872
+        Y: =403
+        ZIndex: =26
+
+    Label7_4 As label:
+        FontWeight: =FontWeight.Bold
+        Size: =15
+        Text: ="Fractionnement"
+        Width: =190
+        X: =872
+        Y: =443
+        ZIndex: =27
+
+    Label7_5 As label:
+        FontWeight: =FontWeight.Bold
+        Size: =15
+        Text: ="Ancienneté"
+        Width: =190
+        X: =872
+        Y: =483
+        ZIndex: =28
+
+    Label7_6 As label:
+        FontWeight: =FontWeight.Bold
+        Size: =15
+        Text: ="RTT"
+        Width: =190
+        X: =872
+        Y: =525
+        ZIndex: =29
+
+    inp_gen As text:
+        Align: =Align.Center
+        Default: =LookUp(TB_Periode_Congé, Dropdown2.SelectedText.Value = Concatenate(PeriodeDebut, " au ", PeriodeFin), Droits_General)
+        DisplayMode: |-
+            =If(
+                status = true,
+                DisplayMode.View,
+                DisplayMode.Edit
+            )
+        Fill: =RGBA(215, 223, 240, 1)
+        Height: =31
+        PaddingLeft: =5
+        Width: =147
+        X: =1085
+        Y: =367
+        ZIndex: =30
+
+    imp_sem As text:
+        Align: =Align.Center
+        Default: =LookUp(TB_Periode_Congé, Dropdown2.SelectedText.Value = Concatenate(PeriodeDebut, " au ", PeriodeFin), Droits_cin_semaine)
+        DisplayMode: |-
+            =If(
+                status = true,
+                DisplayMode.View,
+                DisplayMode.Edit
+            )
+        Fill: =RGBA(215, 223, 240, 1)
+        Height: =31
+        PaddingLeft: =5
+        Width: =147
+        X: =1085
+        Y: =407
+        ZIndex: =31
+
+    imp_frac As text:
+        Align: =Align.Center
+        Default: =LookUp(TB_Periode_Congé, Dropdown2.SelectedText.Value = Concatenate(PeriodeDebut, " au ", PeriodeFin), Droits_Fractionnement)
+        DisplayMode: |-
+            =If(
+                status = true,
+                DisplayMode.View,
+                DisplayMode.Edit
+            )
+        Fill: =RGBA(215, 223, 240, 1)
+        Height: =31
+        PaddingLeft: =5
+        Width: =147
+        X: =1085
+        Y: =447
+        ZIndex: =32
+
+    imp_anc As text:
+        Align: =Align.Center
+        Default: =LookUp(TB_Periode_Congé, Dropdown2.SelectedText.Value = Concatenate(PeriodeDebut, " au ", PeriodeFin), Droits_Ancienneté)
+        DisplayMode: |-
+            =If(
+                status = true,
+                DisplayMode.View,
+                DisplayMode.Edit
+            )
+        Fill: =RGBA(215, 223, 240, 1)
+        Height: =31
+        PaddingLeft: =5
+        Width: =147
+        X: =1085
+        Y: =487
+        ZIndex: =33
+
+    imp_rtt As text:
+        Align: =Align.Center
+        Default: =LookUp(TB_Periode_RTT, Dropdown2_1.SelectedText.Value = Concatenate(Periode_Debut, " au ", Periode_Fin), Solde_RTT)
+        DisplayMode: |-
+            =If(
+                status = true,
+                DisplayMode.View,
+                DisplayMode.Edit
+            )
+        Fill: =RGBA(215, 223, 240, 1)
+        Height: =31
+        PaddingLeft: =5
+        Width: =147
+        X: =1085
+        Y: =529
+        ZIndex: =34
+
+    lab_matricule_1 As label:
+        Height: =58
+        Size: =15
+        Text: |-
+            ="Date entrée entreprise : "
+        Width: =152
+        X: =75
+        Y: =456
+        ZIndex: =35
+
+    ins_date_entrér As text:
+        Default: |-
+            =Text(
+                LookUp(
+                    TB_Utilisateurs,
+                    Lower(User().Email) = 'Prenom NOM'.Email,
+                    Date_entrée_entreprise
+                )
+            )
+        DisplayMode: |-
+            =If(
+                !IsBlank(
+                    LookUp(
+                        TB_Utilisateurs,
+                        Lower(User().Email) = 'Prenom NOM'.Email
+                    )
+                ),
+                DisplayMode.View,
+                DisplayMode.Edit
+            )
+        FontWeight: =FontWeight.Bold
+        Size: =15
+        Width: =364
+        X: =227
+        Y: =465
+        ZIndex: =36
+
+    Button3 As button:
+        Height: =56
+        OnSelect: |-
+            =Set(
+                VarDateDif,
+                DateDiff(
+                    ins_date_entrér.Text,
+                    Today(),
+                    TimeUnit.Years
+                )
+            );
+            Set(
+                varAncDiff,
+                0
+            );
+            If(
+                VarDateDif >= 0 And VarDateDif <= 5,
+                varAncDiff,
+                If(
+                    VarDateDif >= 6 And VarDateDif <= 10,
+                    Set(
+                        varAncDiff,
+                        2
+                    ),
+                    If(
+                        VarDateDif >= 11 And VarDateDif <= 15,
+                        Set(
+                            varAncDiff,
+                            4
+                        ),
+                        If(
+                            VarDateDif >= 16 And VarDateDif <= 20,
+                            Set(
+                                varAncDiff,
+                                6
+                            )
+                        )
+                    )
+                )
+            );
+            If(
+                !IsBlank(ins_matricule) && !IsBlank(ins_date_entrér),
+                
+                Notify(
+                    "Pour obtenir un accès à l'application vous devez remplir les informations manquantes",
+                    NotificationType.Error
+                )
+            );
+            Back()
+        Text: ="Enregistrer mes informations"
+        Visible: =If(IsBlank(LookUp(TB_Utilisateurs, User().Email = 'Prenom NOM'.Email)), true, false)
+        Width: =267
+        X: =926
+        Y: =637
+        ZIndex: =37
+
+    Icon8 As icon.Edit:
+        Height: =35
+        Icon: =Icon.Edit
+        OnSelect: =Set(status, false)
+        Visible: =If(status = true , true, false)
+        Width: =41
+        X: =1215
+        Y: =282
+        ZIndex: =38
+
+    Button10 As button:
+        OnSelect: =Set(status, true)
+        Text: ="Enregistrer"
+        Visible: =If(status = false, true, false)
+        X: =980
+        Y: =581
+        ZIndex: =39
+
+    lab_matricule_2 As label:
+        Height: =58
+        Size: =15
+        Text: |-
+            ="Société : "
+        Width: =152
+        X: =75
+        Y: =526
+        ZIndex: =40
+
+    ins_date_entrér_1 As text:
+        Default: |-
+            =Text(
+                LookUp(
+                    TB_Utilisateurs,
+                    Lower(User().Email) = 'Prenom NOM'.Email,
+                    Société.Value
+                )
+            )
+        DisplayMode: |-
+            =If(
+                !IsBlank(
+                    LookUp(
+                        TB_Utilisateurs,
+                        Lower(User().Email) = 'Prenom NOM'.Email
+                    )
+                ),
+                DisplayMode.View,
+                DisplayMode.Edit
+            )
+        FontWeight: =FontWeight.Bold
+        Size: =15
+        Width: =364
+        X: =227
+        Y: =535
+        ZIndex: =41
+
+    TextInput5_4 As text:
+        BorderThickness: =0
+        Default: |-
+            ="Periode CP : " 
+        DisplayMode: =DisplayMode.View
+        Size: =17
+        Width: =143
+        X: =866
+        Y: =179
+        ZIndex: =42
+
+    Dropdown2 As dropdown:
+        Items: =Distinct(TB_Periode_Congé, Concatenate(PeriodeDebut, " au ", PeriodeFin))
+        Size: =12
+        Width: =316
+        X: =1032
+        Y: =179
+        ZIndex: =43
+
+    TextInput5_9 As text:
+        BorderThickness: =0
+        Default: |-
+            ="Periode RTT : " 
+        DisplayMode: =DisplayMode.View
+        Size: =17
+        Width: =154
+        X: =866
+        Y: =228
+        ZIndex: =44
+
+    Dropdown2_1 As dropdown:
+        Items: =Distinct(TB_Periode_RTT, Concatenate(Periode_Debut, " au ", Periode_Fin))
+        Size: =12
+        Width: =316
+        X: =1032
+        Y: =228
+        ZIndex: =45
+

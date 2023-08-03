@@ -1,0 +1,411 @@
+"'Gestion utilisateurs' As screen.'tabletAutoLayout_HeaderMainFooter_ver1.0'":
+
+    ScreenContainer1_5 As groupContainer.verticalAutoLayoutContainer:
+        Height: =Parent.Height
+        LayoutAlignItems: =LayoutAlignItems.Stretch
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutMode: =LayoutMode.Auto
+        Width: =Parent.Width
+        ZIndex: =1
+
+        HeaderContainer1_5 As groupContainer.horizontalAutoLayoutContainer:
+            FillPortions: =0
+            Height: =60
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            ZIndex: =2
+
+            Rectangle1_5 As rectangle:
+                AlignInContainer: =AlignInContainer.Start
+                Fill: =RGBA(0, 44, 119, 1)
+                FillPortions: =1
+                Height: =60
+                LayoutMinHeight: =50
+                ZIndex: =1
+
+        MainSectionContainer1_5 As groupContainer.verticalAutoLayoutContainer:
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            ZIndex: =3
+
+            Rectangle3_5 As rectangle:
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =10
+                Width: =10
+                ZIndex: =1
+
+        FooterContainer1_5 As groupContainer.horizontalAutoLayoutContainer:
+            FillPortions: =0
+            Height: =45
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            ZIndex: =4
+
+            Rectangle2_5 As rectangle:
+                Fill: =RGBA(0, 44, 119, 1)
+                FillPortions: =1
+                Height: =45
+                ZIndex: =1
+
+    Label1_4 As label:
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =47
+        Size: =16
+        Text: ="V 1.0"
+        Width: =87
+        X: =1278
+        Y: =720
+        ZIndex: =3
+
+    Rectangle4_5 As rectangle:
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =2
+        Fill: =RGBA(215, 223, 240, 1)
+        Height: =543
+        Width: =695
+        X: =40
+        Y: =140
+        ZIndex: =5
+
+    Rectangle5_4 As rectangle:
+        Height: =65
+        Width: =334
+        X: =20
+        Y: =95
+        ZIndex: =6
+
+    Label4_4 As label:
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =33
+        Size: =20
+        Text: ="Gestion utilisateurs"
+        Width: =314
+        X: =30
+        Y: =111
+        ZIndex: =7
+
+    Label5_4 As label:
+        Height: =44
+        Size: =15
+        Text: |-
+            ="Nom Prenom : "
+        Width: =152
+        X: =75
+        Y: =231
+        ZIndex: =8
+
+    Label5_5 As label:
+        Height: =44
+        Size: =15
+        Text: =""
+        Width: =103
+        X: =75
+        Y: =292
+        ZIndex: =9
+
+    Icon4_4 As icon.BackArrow:
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =59
+        Icon: =Icon.BackArrow
+        OnSelect: =Back()
+        PaddingBottom: =10
+        PaddingLeft: |
+            =10
+        PaddingRight: =10
+        PaddingTop: =10  
+        Width: =75
+        ZIndex: =12
+
+    Label5_6 As label:
+        Height: =44
+        Size: =15
+        Text: |-
+            ="Mail : "
+        Width: =73
+        X: =75
+        Y: =308
+        ZIndex: =13
+
+    TextInput3_6 As text:
+        Default: =LookUp(TB_Utilisateurs,'Prenom NOM'.DisplayName = Dropdown1.SelectedText.Value, 'Prenom NOM'.Email)
+        DisplayMode: =DisplayMode.View
+        FontWeight: =FontWeight.Bold
+        Size: =15
+        Width: =364
+        X: =227
+        Y: =308
+        ZIndex: =14
+
+    Label5_7 As label:
+        Height: =44
+        Size: =15
+        Text: |-
+            ="Matricule : "
+        Width: =110
+        X: =75
+        Y: =375
+        ZIndex: =15
+
+    TextInput3_7 As text:
+        Default: =LookUp(TB_Utilisateurs, 'Prenom NOM'.DisplayName = Dropdown1.SelectedText.Value, Matricule)
+        DisplayMode: =DisplayMode.View
+        FontWeight: =FontWeight.Bold
+        Size: =15
+        Width: =364
+        X: =227
+        Y: =379
+        ZIndex: =16
+
+    Rectangle6_3 As rectangle:
+        BorderThickness: =2
+        Fill: =RGBA(0, 0, 0, 0)
+        Height: =246
+        Width: =390
+        X: =865
+        Y: =437
+        ZIndex: =17
+
+    Label6_7 As label:
+        FontWeight: =FontWeight.Bold
+        Height: =46
+        Size: =17
+        Text: ="Compteur"
+        Width: =143
+        X: =865
+        Y: =391
+        ZIndex: =18
+
+    TextInput5_3 As text:
+        BorderThickness: =0
+        Default: ="Informations"
+        DisplayMode: =DisplayMode.View
+        FontWeight: =FontWeight.Bold
+        Size: =17
+        X: =853
+        Y: =144
+        ZIndex: =19
+
+    TextInput5_5 As text:
+        BorderThickness: =0
+        Default: |-
+            =Concatenate("Mail Supérieur : ", LookUp(TB_Utilisateurs,'Prenom NOM'.DisplayName = Dropdown1.SelectedText.Value, Lower('Supérieur Hiérarchique'.Email)))
+        DisplayMode: =DisplayMode.View
+        Size: =17
+        Width: =500
+        X: =865
+        Y: =184
+        ZIndex: =21
+
+    Label7_14 As label:
+        Align: =Align.Center
+        FontWeight: =FontWeight.Bold
+        Size: =15
+        Text: ="Type"
+        Width: =194
+        X: =865
+        Y: =439
+        ZIndex: =22
+
+    Label7_15 As label:
+        Align: =Align.Center
+        FontWeight: =FontWeight.Bold
+        Size: =15
+        Text: ="Jours"
+        Width: =194
+        X: =1061
+        Y: =439
+        ZIndex: =23
+
+    Rectangle7_1 As rectangle:
+        Fill: =RGBA(0, 18, 107, 1)
+        Height: =246
+        Width: =2
+        X: =1059
+        Y: =437
+        ZIndex: =24
+
+    Label7_16 As label:
+        FontWeight: =FontWeight.Bold
+        Size: =15
+        Text: ="General"
+        Width: =190
+        X: =871
+        Y: =481
+        ZIndex: =25
+
+    Label7_17 As label:
+        FontWeight: =FontWeight.Bold
+        Size: =15
+        Text: ="5 ème semaine"
+        Width: =190
+        X: =871
+        Y: =521
+        ZIndex: =26
+
+    Label7_18 As label:
+        FontWeight: =FontWeight.Bold
+        Size: =15
+        Text: ="Fractionnement"
+        Width: =190
+        X: =871
+        Y: =561
+        ZIndex: =27
+
+    Label7_19 As label:
+        FontWeight: =FontWeight.Bold
+        Size: =15
+        Text: ="Ancienneté"
+        Width: =190
+        X: =871
+        Y: =601
+        ZIndex: =28
+
+    Label7_20 As label:
+        FontWeight: =FontWeight.Bold
+        Size: =15
+        Text: ="RTT"
+        Width: =190
+        X: =871
+        Y: =643
+        ZIndex: =29
+
+    Dropdown1 As dropdown:
+        Default: =User().FullName
+        FontWeight: =FontWeight.Bold
+        Height: =42
+        Items: =Distinct(TB_Utilisateurs, 'Prenom NOM'.DisplayName)
+        Size: =15
+        Width: =364
+        X: =227
+        Y: =233
+        ZIndex: =35
+
+    inp_gen_1 As text:
+        Align: =Align.Center
+        Default: =LookUp(TB_Periode_Congé, 'Prenom NOM'.DisplayName = Dropdown1.SelectedText.Value, Droits_General)
+        DisplayMode: |-
+            =If(
+                status2 = true,
+                DisplayMode.View,
+                DisplayMode.Edit
+            )
+        Fill: =RGBA(215, 223, 240, 1)
+        Height: =31
+        PaddingLeft: =5
+        Width: =147
+        X: =1084
+        Y: =485
+        ZIndex: =36
+
+    inp_gen_2 As text:
+        Align: =Align.Center
+        Default: =LookUp(TB_Periode_Congé, 'Prenom NOM'.DisplayName = Dropdown1.SelectedText.Value, Droits_cin_semaine)
+        DisplayMode: |-
+            =If(
+                status2 = true,
+                DisplayMode.View,
+                DisplayMode.Edit
+            )
+        Fill: =RGBA(215, 223, 240, 1)
+        Height: =31
+        PaddingLeft: =5
+        Width: =147
+        X: =1084
+        Y: =525
+        ZIndex: =37
+
+    inp_gen_3 As text:
+        Align: =Align.Center
+        Default: =LookUp(TB_Periode_Congé, 'Prenom NOM'.DisplayName = Dropdown1.SelectedText.Value, Droits_Fractionnement)
+        DisplayMode: |-
+            =If(
+                status2 = true,
+                DisplayMode.View,
+                DisplayMode.Edit
+            )
+        Fill: =RGBA(215, 223, 240, 1)
+        Height: =31
+        PaddingLeft: =5
+        Width: =147
+        X: =1084
+        Y: =565
+        ZIndex: =38
+
+    inp_gen_4 As text:
+        Align: =Align.Center
+        Default: =LookUp(TB_Periode_Congé, 'Prenom NOM'.DisplayName = Dropdown1.SelectedText.Value, Droits_Ancienneté)
+        DisplayMode: |-
+            =If(
+                status2 = true,
+                DisplayMode.View,
+                DisplayMode.Edit
+            )
+        Fill: =RGBA(215, 223, 240, 1)
+        Height: =31
+        PaddingLeft: =5
+        Width: =147
+        X: =1084
+        Y: =605
+        ZIndex: =39
+
+    inp_gen_5 As text:
+        Align: =Align.Center
+        Default: =LookUp(TB_Periode_RTT, Prenom_NOM.DisplayName = Dropdown1.SelectedText.Value, Solde_RTT)
+        DisplayMode: |-
+            =If(
+                status2 = true,
+                DisplayMode.View,
+                DisplayMode.Edit
+            )
+        Fill: =RGBA(215, 223, 240, 1)
+        Height: =31
+        PaddingLeft: =5
+        Width: =147
+        X: =1084
+        Y: =647
+        ZIndex: =40
+
+    Icon9 As icon.Edit:
+        Height: =42
+        Icon: =Icon.Edit
+        OnSelect: =Set(status2, false)
+        Visible: =If(status2 = true, true, false)
+        Width: =44
+        X: =1211
+        Y: =391
+        ZIndex: =41
+
+    Icon10 As icon.Save:
+        Height: =44
+        Icon: =Icon.Save
+        OnSelect: =Set(status2, true)
+        Visible: =If(status2 = true, false, true)
+        Width: =44
+        X: =1211
+        Y: =391
+        ZIndex: =42
+
+    Label5_12 As label:
+        Height: =44
+        Size: =15
+        Text: |-
+            ="Société : "
+        Width: =110
+        X: =75
+        Y: =439
+        ZIndex: =43
+
+    TextInput3_12 As text:
+        Default: =LookUp(TB_Utilisateurs, 'Prenom NOM'.DisplayName = Dropdown1.SelectedText.Value, Société.Value)
+        DisplayMode: =DisplayMode.View
+        FontWeight: =FontWeight.Bold
+        Size: =15
+        Width: =364
+        X: =227
+        Y: =443
+        ZIndex: =44
+

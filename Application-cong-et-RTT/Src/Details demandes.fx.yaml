@@ -1,0 +1,548 @@
+"'Details demandes' As screen.'tabletAutoLayout_HeaderMainFooter_ver1.0'":
+    Fill: =Color.White 
+
+    ScreenContainer1_7 As groupContainer.verticalAutoLayoutContainer:
+        Height: =Parent.Height
+        LayoutAlignItems: =LayoutAlignItems.Stretch
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutMode: =LayoutMode.Auto
+        Width: =Parent.Width
+        ZIndex: =1
+
+        HeaderContainer1_7 As groupContainer.horizontalAutoLayoutContainer:
+            FillPortions: =0
+            Height: =60
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            ZIndex: =2
+
+            Rectangle1_7 As rectangle:
+                AlignInContainer: =AlignInContainer.Start
+                Fill: =RGBA(0, 44, 119, 1)
+                FillPortions: =1
+                Height: =60
+                LayoutMinHeight: =50
+                ZIndex: =1
+
+        MainSectionContainer1_7 As groupContainer.verticalAutoLayoutContainer:
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            ZIndex: =3
+
+            Rectangle3_7 As rectangle:
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =10
+                Width: =10
+                ZIndex: =1
+
+        FooterContainer1_7 As groupContainer.horizontalAutoLayoutContainer:
+            FillPortions: =0
+            Height: =45
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            ZIndex: =4
+
+            Rectangle2_7 As rectangle:
+                Fill: =RGBA(0, 44, 119, 1)
+                FillPortions: =1
+                Height: =45
+                ZIndex: =1
+
+    Label1_6 As label:
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =47
+        Size: =16
+        Text: ="V 1.0"
+        Width: =87
+        X: =1278
+        Y: =720
+        ZIndex: =3
+
+    Rectangle4_7 As rectangle:
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =2
+        Fill: =RGBA(215, 223, 240, 1)
+        Height: =536
+        Width: =839
+        X: =44
+        Y: =158
+        ZIndex: =5
+
+    Rectangle5_6 As rectangle:
+        Height: =64
+        Width: =334
+        X: =20
+        Y: =110
+        ZIndex: =6
+
+    Label4_6 As label:
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =32
+        Size: =20
+        Text: =LookUp(TB_Demandes, inftrsvar = ID , Titre)
+        Width: =314
+        X: =30
+        Y: =126
+        ZIndex: =7
+
+    Icon4_6 As icon.BackArrow:
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =59
+        Icon: =Icon.BackArrow
+        OnSelect: =Back(); Set(etat, true)
+        PaddingBottom: =10
+        PaddingLeft: |
+            =10
+        PaddingRight: =10
+        PaddingTop: =10  
+        Width: =75
+        ZIndex: =12
+
+    TextInput9 As text:
+        Default: = LookUp(TB_Demandes, inftrsvar = ID , 'Prenom NOM')
+        DisplayMode: =DisplayMode.View
+        Fill: =RGBA(0, 0, 0, 0)
+        Height: =41
+        Size: =17
+        Width: =415
+        X: =283
+        Y: =225
+        ZIndex: =13
+
+    mail_demandeur As text:
+        Default: =LookUp(TB_Demandes, inftrsvar = ID , Mail)
+        DisplayMode: =DisplayMode.View
+        Fill: =RGBA(0, 0, 0, 0)
+        Height: =41
+        Size: =17
+        Width: =415
+        X: =283
+        Y: =288
+        ZIndex: =14
+
+    Label11 As label:
+        FontWeight: =FontWeight.Bold
+        Size: =18
+        Text: |-
+            ="Prenom NOM : "
+        Width: =203
+        X: =65
+        Y: =226
+        ZIndex: =15
+
+    Label11_1 As label:
+        FontWeight: =FontWeight.Bold
+        Size: =18
+        Text: |-
+            ="Mail :"
+        Width: =203
+        X: =65
+        Y: =288
+        ZIndex: =16
+
+    TextInput9_2 As text:
+        Default: |-
+            =Concatenate("N° de formulaire :  ", inftrsvar) 
+        DisplayMode: =DisplayMode.View
+        FontWeight: =FontWeight.Semibold
+        Height: =41
+        Size: =18
+        Width: =415
+        X: =30
+        Y: =64
+        ZIndex: =17
+
+    Label11_2 As label:
+        FontWeight: =FontWeight.Bold
+        Size: =18
+        Text: |-
+            ="Mail supérieur :"
+        Width: =203
+        X: =65
+        Y: =353
+        ZIndex: =18
+
+    aff_mail_sh As text:
+        Default: =LookUp(TB_Utilisateurs, 'Prenom NOM'.Email = mail_demandeur.Text, Lower('Supérieur Hiérarchique'.Email))
+        DisplayMode: =DisplayMode.View
+        Fill: =RGBA(0, 0, 0, 0)
+        Height: =41
+        Size: =17
+        Width: =415
+        X: =283
+        Y: =353
+        ZIndex: =19
+
+    Label11_4 As label:
+        FontWeight: =FontWeight.Bold
+        Size: =18
+        Text: |-
+            ="Type :"
+        Width: =203
+        X: =65
+        Y: =426
+        ZIndex: =22
+
+    txt_type_demande As text:
+        Default: =LookUp(TB_Demandes, inftrsvar = ID , Type_C)
+        DisplayMode: =DisplayMode.View
+        Fill: =RGBA(0, 0, 0, 0)
+        Height: =41
+        Size: =17
+        Width: =415
+        X: =283
+        Y: =426
+        ZIndex: =23
+
+    TextInput9_6 As text:
+        Default: =Concatenate("Du   ", Text(LookUp(TB_Demandes, inftrsvar = ID , Date_Debut)), "   au   ", Text(LookUp(TB_Demandes, inftrsvar = ID , Date_retour)))
+        DisplayMode: =DisplayMode.View
+        Fill: =RGBA(0, 0, 0, 0)
+        FontWeight: =FontWeight.Bold
+        Height: =41
+        PaddingLeft: =5
+        Size: =19
+        Width: =623
+        X: =65
+        Y: =478
+        ZIndex: =24
+
+    Label11_5 As label:
+        FontWeight: =FontWeight.Bold
+        Size: =14
+        Text: |-
+            ="Commentaire :"
+        Width: =203
+        X: =65
+        Y: =519
+        ZIndex: =25
+
+    TextInput10 As text:
+        Default: =LookUp(TB_Demandes, inftrsvar = ID , Commentaire_1)
+        DisplayMode: =DisplayMode.View
+        Fill: =RGBA(0, 0, 0, 0)
+        Height: =86
+        Mode: =TextMode.MultiLine
+        Width: =594
+        X: =65
+        Y: =559
+        ZIndex: =26
+
+    text_commentaire_retour As text:
+        Default: =If(txt_statut.Text = "Approuvé" Or txt_statut.Text = "Refusé", Text(LookUp(TB_Demandes, inftrsvar = ID , Commentaire_2)))
+        DisplayMode: =If(LookUp(TB_Demandes, inftrsvar = ID , Statut) = "En attente", DisplayMode.Edit, DisplayMode.Disabled)
+        Height: =219
+        HintText: ="Commentaire"
+        Mode: =TextMode.MultiLine
+        Width: =440
+        X: =901
+        Y: =174
+        ZIndex: =27
+
+    Label11_6 As label:
+        FontWeight: =FontWeight.Semibold
+        Size: =15
+        Text: |-
+            ="Commentaire : "
+        Width: =203
+        X: =901
+        Y: =134
+        ZIndex: =28
+
+    Label11_7 As label:
+        DisplayMode: =If(txt_type_demande.Text = "RTT", DisplayMode.Disabled, DisplayMode.View)
+        FontWeight: =FontWeight.Semibold
+        Size: =15
+        Text: |-
+            ="Situation CNETP : "
+        Visible: =If(LookUp(TB_Demandes, inftrsvar = ID , Statut) = "Refusé" Or LookUp(TB_Demandes, inftrsvar = ID , Statut) = "Annulé", false, true)
+        Width: =203
+        X: =901
+        Y: =419
+        ZIndex: =30
+
+    inf_situation_cnetp As dropdown:
+        Color: =If(LookUp(TB_Demandes,inftrsvar = ID, 'Situation CNETP') = "Declaré",RGBA(141,198,63,1),If(LookUp(TB_Demandes,inftrsvar=ID,'Situation CNETP')="A déclarer",RGBA(255,0,0,1)))
+        Default: =LookUp(TB_Demandes, inftrsvar = ID, 'Situation CNETP')
+        DisplayMode: =If(etat = false, DisplayMode.Edit, DisplayMode.View) 
+        FontWeight: =FontWeight.Bold
+        Height: =41
+        Items: =Distinct(TB_Demandes, 'Situation CNETP')
+        Size: =15
+        Visible: =If(LookUp(TB_Demandes, inftrsvar = ID , Statut) = "Refusé" Or LookUp(TB_Demandes, inftrsvar = ID , Statut) = "Annulé", false, If(txt_type_demande.Text = "RTT", false, true))
+        Width: =188
+        X: =916
+        Y: =458
+        ZIndex: =31
+
+    Button6 As button:
+        Fill: =RGBA(54, 176, 75, 1)
+        HoverFill: =
+        OnSelect: |-
+            =Patch(
+                TB_Demandes,
+                First(
+                    Filter(
+                        TB_Demandes,
+                        inftrsvar = ID
+                    )
+                ),
+                {Statut: "Approuvé"},
+                {Commentaire_2: text_commentaire_retour.Text}
+            );
+            Notify(
+                "La modification à bien été enregistré",
+                NotificationType.Success
+            );
+            Set(varRTT, LookUp(TB_Periode_RTT, mail_demandeur.Text = Prenom_NOM.Email, Solde_RTT));
+            Set(varGen, LookUp(TB_Periode_Congé, mail_demandeur.Text = 'Prenom NOM'.Email, Droits_General ));
+            Set(varFrac, LookUp(TB_Periode_Congé, mail_demandeur.Text = 'Prenom NOM'.Email, Droits_Fractionnement));
+            Set(varAnc, LookUp(TB_Periode_Congé, mail_demandeur.Text = 'Prenom NOM'.Email, Droits_Ancienneté));
+            Set(varSem, LookUp(TB_Periode_Congé, mail_demandeur.Text = 'Prenom NOM'.Email, Droits_cin_semaine));
+            If(txt_type_demande.Text = "RTT", Patch(TB_Periode_RTT, LookUp(TB_Periode_RTT, mail_demandeur.Text = Prenom_NOM.Email), {Solde_RTT: varRTT-txt_diff_demande.Text}));
+            Back()
+        Text: ="APPROUVER"
+        Visible: |-
+            =If(
+                txt_statut.Text = "Approuvé" Or txt_statut.Text = "Refusé" Or txt_statut.Text = "Annulé",
+                false,
+                If(
+                    User().Email = aff_mail_sh.Text And LookUp(
+                        TB_Utilisateurs,
+                        User().Email = 'Prenom NOM'.Email,
+                        Role.Value
+                    ) = "Valideur",
+                    true,
+                    false
+                )
+            )
+        X: =1145
+        Y: =628
+        ZIndex: =32
+
+    Button7 As button:
+        Fill: =RGBA(255, 0, 0, 1)
+        OnSelect: |-
+            =Patch(TB_Demandes, First(Filter(TB_Demandes, inftrsvar = ID)), {Statut: "Refusé"}, {Commentaire_2: text_commentaire_retour.Text}); Notify("La modification à bien été enregistré", NotificationType.Success); Back()
+        Text: ="REFUSER"
+        Visible: |-
+            =If(
+                txt_statut.Text = "Approuvé" Or txt_statut.Text = "Refusé" Or txt_statut.Text = "Annulé",
+                false,
+                If(
+                    User().Email = aff_mail_sh.Text And LookUp(
+                        TB_Utilisateurs,
+                        User().Email = 'Prenom NOM'.Email,
+                        Role.Value
+                    ) = "Valideur",
+                    true,
+                    false
+                )
+            )
+        X: =930
+        Y: =628
+        ZIndex: =33
+
+    txt_statut As text:
+        Color: |-
+            =If(
+                LookUp(
+                    TB_Demandes,
+                    inftrsvar = ID,
+                    Statut
+                ) = "Approuvé",
+                RGBA(
+                    141,
+                    198,
+                    63,
+                    1
+                ),
+                If(
+                    LookUp(
+                        TB_Demandes,
+                        inftrsvar = ID,
+                        Statut
+                    ) = "Refusé",
+                    RGBA(
+                        255,
+                        0,
+                        0,
+                        1
+                    ),
+                    If(
+                        LookUp(
+                            TB_Demandes,
+                            inftrsvar = ID,
+                            Statut
+                        ) = "En attente",
+                        RGBA(
+                            232,
+                            195,
+                            5,
+                            100
+                        ),
+                        If(
+                            LookUp(
+                                TB_Demandes,
+                                inftrsvar = ID,
+                                Statut
+                            ) = "Annulé",
+                            RGBA(
+                                240,
+                                0,
+                                0,
+                                100
+                            )
+                        )
+                    )
+                )
+            )
+        Default: =LookUp(TB_Demandes, inftrsvar = ID , Statut)
+        DisplayMode: =DisplayMode.View
+        Fill: =RGBA(0, 0, 0, 0)
+        FontWeight: =FontWeight.Bold
+        Height: =41
+        Size: =20
+        Width: =415
+        X: =377
+        Y: =117
+        ZIndex: =34
+
+    Button8 As button:
+        Fill: =RGBA(184, 0, 0, 1)
+        OnSelect: |-
+            =Patch(
+                TB_Demandes,
+                First(
+                    Filter(
+                        TB_Demandes,
+                        inftrsvar = ID
+                    )
+                ),
+                {Statut: "Annulé" },
+                {'Situation CNETP': "Annulé" }
+            );
+            Set(
+                varRTT2,
+                LookUp(
+                    TB_Periode_RTT,
+                    mail_demandeur.Text = Prenom_NOM.Email,
+                    Solde_RTT
+                )
+            );
+            If(
+                txt_type_demande.Text = "RTT",
+                Patch(
+                    TB_Periode_RTT,
+                    LookUp(
+                        TB_Periode_RTT,
+                        mail_demandeur.Text = Prenom_NOM.Email
+                    ),
+                    {Solde_RTT: varRTT2 + txt_diff_demande.Text}
+                )
+            );
+            Notify(
+                "La demande à bien été annulé",
+                NotificationType.Success
+            );
+            Back()
+        Text: ="Annuler la demande"
+        Visible: |-
+            =If(
+                txt_statut.Text = "En attente" Or txt_statut.Text = "Annulé",
+                false,
+                If(
+                    User().Email = aff_mail_sh.Text And LookUp(
+                        TB_Utilisateurs,
+                        User().Email = 'Prenom NOM'.Email,
+                        Role.Value
+                    ) = "Valideur",
+                    true,
+                    false
+                )
+            )
+        Width: =259
+        X: =991
+        Y: =628
+        ZIndex: =35
+
+    Icon6 As icon.Edit:
+        Height: =35
+        Icon: =Icon.Edit
+        OnSelect: =Set(etat, false)
+        Visible: =If(etat= false, false, true) And If(LookUp(TB_Demandes, inftrsvar = ID , Statut) = "Refusé" Or LookUp(TB_Demandes, inftrsvar = ID , Statut) = "Annulé", false, If(txt_type_demande.Text = "RTT", false, true))
+        Width: =28
+        X: =1117
+        Y: =464
+        ZIndex: =36
+
+    Icon7 As icon.Save:
+        Height: =35
+        Icon: =Icon.Save
+        OnSelect: |-
+            =Patch(TB_Demandes, First(Filter(TB_Demandes, inftrsvar = ID)), {'Situation CNETP': inf_situation_cnetp.Selected.Value}); Set(etat, true)
+        Visible: =If(etat = true, false, true) And If(LookUp(TB_Demandes, inftrsvar = ID , Statut) = "Refusé" Or LookUp(TB_Demandes, inftrsvar = ID , Statut) = "Annulé", false, true)
+        Width: =28
+        X: =1117
+        Y: =464
+        ZIndex: =37
+
+    TextInput9_7 As text:
+        Align: =Align.Center
+        Default: |-
+            =Concatenate("Demandé le : ", LookUp(TB_Demandes, inftrsvar = ID , Text(Créé)))
+        DisplayMode: =DisplayMode.View
+        Fill: =RGBA(0, 0, 0, 0)
+        Height: =41
+        Size: =17
+        Width: =469
+        X: =461
+        Y: =64
+        ZIndex: =38
+
+    txt_diff_demande As text:
+        Align: =Align.Center
+        Default: |-
+            =If(
+                DateDiff(
+                    LookUp(
+                        TB_Demandes,
+                        inftrsvar = ID,
+                        Date_Debut
+                    ),
+                    LookUp(
+                        TB_Demandes,
+                        inftrsvar = ID,
+                        Date_retour
+                    ),
+                    TimeUnit.Days
+                ) = 0 And txt_type_demande.Text = "RTT",
+                1,
+                DateDiff(
+                    LookUp(
+                        TB_Demandes,
+                        inftrsvar = ID,
+                        Date_Debut
+                    ),
+                    LookUp(
+                        TB_Demandes,
+                        inftrsvar = ID,
+                        Date_retour
+                    ),
+                    TimeUnit.Days
+                )
+            )
+        DisplayMode: =If(Cbx_dmd_1.Value = true, DisplayMode.View, DisplayMode.Disabled)
+        FontWeight: =FontWeight.Semibold
+        PaddingLeft: =5
+        Size: =15
+        Visible: =false
+        Width: =39
+        X: =761
+        Y: =531
+        ZIndex: =39
+
