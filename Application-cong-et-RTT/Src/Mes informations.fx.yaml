@@ -284,7 +284,7 @@
         Y: =525
         ZIndex: =29
 
-    inp_gen As text:
+    imp_gen As text:
         Align: =Align.Center
         Default: =LookUp(TB_Periode_Congé, Dropdown2.SelectedText.Value = Concatenate(PeriodeDebut, " au ", PeriodeFin), Droits_General)
         DisplayMode: |-
@@ -362,6 +362,7 @@
                 DisplayMode.Edit
             )
         Fill: =RGBA(215, 223, 240, 1)
+        Format: =TextFormat.Number
         Height: =31
         PaddingLeft: =5
         Width: =147
@@ -473,7 +474,9 @@
         ZIndex: =38
 
     Button10 As button:
-        OnSelect: =Set(status, true)
+        OnSelect: |-
+            =Patch(TB_Periode_Congé, First(Filter(TB_Periode_Congé, Concatenate(PeriodeDebut, " au ", PeriodeFin) = Dropdown2.SelectedText.Value)), {Droits_General: imp_gen.Text}, {Droits_cin_semaine: imp_sem.Text}, {Droits_Fractionnement: imp_frac.Text}, {Droits_Fractionnement: imp_anc.Text});
+            Patch(TB_Periode_RTT, First(Filter(TB_Periode_RTT, Concatenate(Periode_Debut, " au ", Periode_Fin) = Dropdown2_1.SelectedText.Value)), {Solde_RTT: imp_rtt})
         Text: ="Enregistrer"
         Visible: =If(status = false, true, false)
         X: =980
